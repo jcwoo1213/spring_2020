@@ -15,11 +15,11 @@ public class MemberServiceImpl implements MemberService{
 	@Autowired
 	MemberMapper mapper;
 	
-	public void create_member(MemberVO2 member) {
+	public int create_member(MemberVO2 member) {
 		log.info(member);
 
 		System.out.println(member);
-		mapper.create(member);
+		return mapper.create(member);
 	}
 
 	@Override

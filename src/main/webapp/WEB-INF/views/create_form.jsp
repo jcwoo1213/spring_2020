@@ -46,10 +46,11 @@
 
 		<div class="contact">
 			<form role="form" id="create_form"action="create" method="post" enctype="multipart/form-data">
-				<input type="text" Name="userid" placeholder="userid" required="">
+				<input type="text" Name="userid" id="userid" placeholder="userid" required=""><input id="idcheckbtn"type="button" value="check">
 				<input type="password" Name="userpw" placeholder="userpw" required="">
 				<input type="password" Name="check" placeholder="check" required="">
 				<input type="text" Name="userName" placeholder="username" required="">
+				<input type="hidden" name="idcheck" value="0" id="idcheck">
 				<input type="hidden" name="auth" placeholder="auth" value="ROLE_MEMBER">
 				<input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}" />
 				<div class="send-button">
@@ -68,12 +69,12 @@
 <!-- //Body -->
 <script type="text/javascript">
 function getcheck(param, callback, error) {
-	console.log("getList reply..............");
+
 	
 	var writer = '<sec:authentication property="principal.username"/>';
-	var page = param.page || 1; // param.page 가 null 이면 1로 설정 
+	var userid = param.userid; // param.page 가 null 이면 1로 설정 
 	
-	$.getJSON("/jcw/contact/test/" + page + ".json", function(data) {
+	$.getJSON("/jcw/member/check/" + userid + ".json", function(data) {
 		if (callback) {
 			callback(data); // 댓글 목록만 가져오는 경우 
             //callback(data.replyCnt,data.list); //댓글 숫자와 목록을 가져오는 경우
@@ -87,24 +88,37 @@ function getcheck(param, callback, error) {
 }
 
 	$(document).ready(function() {
-		console.log( "ready!" );
-		$("#create_form").on("submit",function(){
+		
+
+		$("#idcheckbtn").on("click",function(e){
+			var id=$("#userid").val();
+			getcheck({
+				userid :id
+			},function(data){
+				if(data!=0){
+					alert("id중복입니다");
+					$("#idcheck").val(0);
+				}else{
+					alert("사용가능");
+					$("#idcheck").val(1);
+				}
+				})
+			})
+
+		$("#create_form").on("submit",function(event){
 			var password=$(this).find('[name=userpw]').val();
 			var check=$(this).find('[name=check]').val();
 			var id=$(this).find('[name=userid]').val();
+			var idcheck=$(this).find('[name=idcheck]').val();
+			if(idcheck==0){
+				alert("id중복확인해주세요");
+				return false;
+			}
 			if(check!=password){
 				alert("비밀번호가 일치하지 않습니다");
 				return false;
 			}
-			getcheck({
-				userid : userid 
-			},function(data){
-				console.log(data);
-				})
-			return false;
 		});
-		
-
 	});
 
 </script>
