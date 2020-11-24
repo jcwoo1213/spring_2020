@@ -111,6 +111,14 @@
       </script>
 </c:if>  
 
+ <script type="text/javascript">
+      $(document).ready(function(){
+    	  var result = '<c:out value="${result}"/>';
+        if(result!=''){
+      		alert("회원가입성공");
+        }
+      });
+ </script>
 </body>
 
 </html>
