@@ -66,4 +66,13 @@ public class AdminNoticeController {
 		rttr.addFlashAttribute("modify_result", service.del(notice.getIdx()));
 		return "redirect:/admin/notice/list"+cri.getListLink();
 	}
+	@GetMapping("create")
+	public String create() {
+		return "admin/notice_input";
+	}
+	@PostMapping("create")
+	public String create(NoticeVO notice) {
+		service.create(notice);
+		return "redirect:/admin/notice/list";
+	}
 }

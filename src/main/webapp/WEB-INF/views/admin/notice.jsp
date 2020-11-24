@@ -405,7 +405,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 	</div>
 				</div>
 			</div>
-      <button>글쓰기</button>
+      <h1><a href="create"><span class="label label-default col-md-12">write</span></a></h1>
 		</div>
 		<!--footer-->
 		<div class="footer">

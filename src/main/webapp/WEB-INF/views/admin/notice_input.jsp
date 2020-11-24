@@ -290,18 +290,20 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
         <div class="row">
           <h3 class="title1">공지사항 등록</h3>
           <div class="form-three widget-shadow">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="create" method="post">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <input type="hidden" name="writer" value="<sec:authentication property="principal.username"/>">
               <div class="form-group">
                 <label for="disabledinput" class="col-sm-2 control-label">제목</label>
                 <div class="col-sm-8">
-                  <input disabled="" type="text" class="form-control1" id="disabledinput" placeholder="Title:">
+                  <input  type="text" class="form-control1" id="title" name="title"placeholder="Title:">
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="txtarea1" class="col-sm-2 control-label">Textarea</label>
+                <label for="txtarea1" class="col-sm-2 control-label">내용</label>
                 <div class="col-sm-8">
-                  <textarea name="txtarea1" id="txtarea1" cols="20" rows="20" class="form-control1"></textarea>
+                  <textarea name="content" id="txtarea1" cols="20" rows="20" class="form-control1"></textarea>
                 </div>
               </div>
 
