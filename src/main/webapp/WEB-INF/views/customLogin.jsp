@@ -68,7 +68,6 @@
 							</fieldset>
 							<input type="hidden" name="${_csrf.parameterName}"
 								value="${_csrf.token}" />
-
 						</form>
 
 					</div>
@@ -92,7 +91,7 @@
 	<script src="/resources/dist/js/sb-admin-2.js"></script>
   <script>
   
-
+  
   
   
   $(".btn-success").on("click", function(e){
@@ -110,17 +109,7 @@
       	alert("로그아웃하였습니다.");
       });
       </script>
-</c:if>
-
-      <script type="text/javascript">
-      $(document).ready(function(){
-    	  var result = '<c:out value="${result}"/>';
-        if(result!=''){
-      		alert("회원가입성공");
-        }
-      });
-      </script>
-  
+</c:if>  
 
 </body>
 

@@ -17,19 +17,6 @@ public interface BoardMapper {
 	
 	public BoardVO2 view(int idx);
 
-	public List<BoardVO> getList();
-
-//	public List<BoardVO> getListWithPaging(Criteria cri);
-
-	public void insert(BoardVO board);
-
-	public Integer insertSelectKey(BoardVO board);
-
-	public BoardVO read(Long bno);
-
-	public int delete(Long bno);
-
-	public int update(BoardVO board);
 
 	public void updateCount(int idx);
 	public int getTotalCount(Criteria cri);

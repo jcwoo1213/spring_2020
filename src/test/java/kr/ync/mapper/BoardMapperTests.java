@@ -41,18 +41,18 @@ public class BoardMapperTests {
 //		int idx=1;
 //		mapper.del(idx);
 //	}
-	@Test
-	public void testCreate() {
-		BoardVO2 board=new BoardVO2();
-		for(int i=1;i<100;i++) {
-			board.setTitle("test"+i);
-			board.setContent("테스트"+i);
-			board.setWriter("temp1");
-			log.info(board);
-			mapper.create(board);
-		}
-
-	}
+//	@Test
+//	public void testCreate() {
+//		BoardVO2 board=new BoardVO2();
+//		for(int i=1;i<100;i++) {
+//			board.setTitle("test"+i);
+//			board.setContent("테스트"+i);
+//			board.setWriter("temp1");
+//			log.info(board);
+//			mapper.create(board);
+//		}
+//
+//	}
 //	@Test
 //	public void testList() {
 //		mapper.List().forEach(board -> log.info("board 객체 내용 : " + board) );;

@@ -269,7 +269,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src=" ../../../resources/js/bootstrap.js" ></script>
 </body>
-<script type="text/javascript" >
+<script type="text/javascript">
 
 	$(document).ready(
 					function() {

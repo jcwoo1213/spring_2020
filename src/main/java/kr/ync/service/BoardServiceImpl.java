@@ -23,48 +23,9 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardMapper mapper;
 	
-	@Override
-	public void register(BoardVO board) {
 
-		log.info("register......" + board);
 
-		mapper.insertSelectKey(board);
-	}
 
-	@Override
-	public BoardVO get(Long bno) {
-
-		log.info("get......" + bno);
-
-		return mapper.read(bno);
-
-	}
-
-	@Override
-	public boolean modify(BoardVO board) {
-
-		log.info("modify......" + board);
-		
-		// SQL 성공 시 <update tag에서 update 된 갯수를 리턴. 따라서 mapper.update(board)의 값은 1이됨. 
-		// return true 가 됨.
-		return mapper.update(board) == 1;
-	}
-
-	@Override
-	public boolean remove(Long bno) {
-
-		log.info("remove...." + bno);
-
-		return mapper.delete(bno) == 1;
-	}
-
-	 @Override
-	 public List<BoardVO> getList() {
-	
-		 log.info("getList..........");
-		
-		 return mapper.getList();
-	 }
 
 //	@Override
 //	public List<BoardVO> getListWithPaging(Criteria cri) {
@@ -89,11 +50,7 @@ public class BoardServiceImpl implements BoardService {
 		mapper.create(vo);
 	}
 
-	@Override
-	public List<BoardVO2> List() {
-		// TODO Auto-generated method stub
-		return mapper.List();
-	}
+
 	
 	@Override
 	public BoardVO2 view(int idx) {

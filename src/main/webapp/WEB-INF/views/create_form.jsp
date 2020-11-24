@@ -69,7 +69,6 @@
 <!-- //Body -->
 <script type="text/javascript">
 function getcheck(param, callback, error) {
-
 	
 	var writer = '<sec:authentication property="principal.username"/>';
 	var userid = param.userid; // param.page 가 null 이면 1로 설정 
@@ -86,10 +85,8 @@ function getcheck(param, callback, error) {
 		}
 	});
 }
-
 	$(document).ready(function() {
 		
-
 		$("#idcheckbtn").on("click",function(e){
 			var id=$("#userid").val();
 			getcheck({
@@ -104,7 +101,6 @@ function getcheck(param, callback, error) {
 				}
 				})
 			})
-
 		$("#create_form").on("submit",function(event){
 			var password=$(this).find('[name=userpw]').val();
 			var check=$(this).find('[name=check]').val();
@@ -120,6 +116,5 @@ function getcheck(param, callback, error) {
 			}
 		});
 	});
-
 </script>
 </html>
