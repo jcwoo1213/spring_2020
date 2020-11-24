@@ -124,4 +124,5 @@ public class BoardController2 {
 		service.modify(board);
 		return "redirect:/jcw/board/view"+cri.getListLink()+"&idx="+board.getIdx();
 	}
+
 }

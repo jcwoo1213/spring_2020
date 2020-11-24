@@ -130,7 +130,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 				<div class=" clearfix" ></div>
 			</div>
-			<form id='operForm'  action="jcw/board/del"  method="post" >
+			<form id='operForm'    method="post" >
 				<input type='hidden'  id='idx'  name='idx'  value='<c:out value=" ${board.idx}" />' >
 				<input type="hidden"  name="${_csrf.parameterName}"  value="${_csrf.token}"  /> 
 				<input type='hidden'  name='pageNum'  value='<c:out value="${cri.pageNum}" />' > 
