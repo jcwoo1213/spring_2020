@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ync.mapper.ContactMapper">
+	
+	<insert id="input">
+		insert into tbl_project_message(idx,content,writer,title)
+		values (seq_project_message.nextval,#{content},#{writer},#{title})
+	</insert>
+	
+
+	
+	<select id="getList" resultType="kr.ync.domain.MessageVO">
+		select * from tbl_project_message where writer=#{writer} order by idx 
+	</select>
+	<select id="total" resultType="int">
+		select count(*) from tbl_project_message where writer=#{writer}
+	</select>
+	<select id="get" resultType="kr.ync.domain.MessageVO">
+		select * from tbl_project_message where idx=#{idx}
+	</select>
+	<update id="modify">
+		update tbl_project_comment
+		set 
+		content=#{content}
+		where idx =
+		#{idx}
+	</update>
+	<select id="getTotal" resultType="int">
+		select count(*) from tbl_project_comment where board_idx=#{board_idx}
+	</select>
+	<select id="getListWithPaging" resultType="kr.ync.domain.MessageVO">
+		<![CDATA[
+	 		SELECT	*
+	 		FROM	(SELECT 
+	      					rownum rn,
+	      					idx,
+			 				title,
+			 				content,
+			 				writer,
+			 				regdate
+	    			FROM	tbl_project_message
+	    			WHERE	writer =  #{writer}
+	    			AND		idx > 0
+	    			AND		rownum <= #{cri.pageNum} * #{cri.amount}
+	    			ORDER BY idx desc
+	   				)
+	   		WHERE	rn > (#{cri.pageNum} -1) * #{cri.amount}
+		]]>
+	</select>
+	<!--  <select id="getListWithPaging" resultType="kr.ync.domain.ReplyVO">
+		<![CDATA[
+	 		SELECT	idx,
+	 				board_idx,
+	 				content,
+	 				writer,
+	 				regdate
+	 		FROM	(SELECT /*+INDEX_DESC(tbl_reply idx_reply) */ 
+	      					rownum rn,
+	      					idx,
+			 				board_idx,
+			 				content,
+			 				writer,
+			 				regdate
+	    			FROM	tbl_project_comment
+	    			WHERE	board_idx =  #{board_idx}
+	    			AND		idx > 0
+	    			AND		rownum <= #{cri.pageNum} * #{cri.amount}
+	   				)
+	   		WHERE	rn > (#{cri.pageNum} -1) * #{cri.amount}
+		]]>
+	</select>-->
+</mapper>
