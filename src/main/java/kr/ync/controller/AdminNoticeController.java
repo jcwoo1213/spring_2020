@@ -50,7 +50,7 @@ public class AdminNoticeController {
 		System.out.println("idx");
 		model.addAttribute("cri", cri);
 		model.addAttribute("notice", service.view(idx));
-		return "admin/notice_replace";
+		return "admin/notice_modify";
 	}
 	@PreAuthorize("principal.username == #notice.writer")
 	@PostMapping("modify")

@@ -1,5 +1,6 @@
 package kr.ync.controller;
 
+import java.io.File;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,8 +94,9 @@ public class BoardController2 {
 	@PreAuthorize("principal.username == #writer")
 	@PostMapping("del")
 	public String del(@RequestParam("idx") int idx,Criteria cri,@RequestParam("writer")String writer) {
-		log.info(idx);
-		System.out.println(idx);
+		String img_path=service.getImg(idx);
+		File file=new File(uploadPath+"\\"+img_path);
+		UploadUtils.delete(file);
 		service.del(idx);
 			
 		
@@ -113,6 +115,9 @@ public class BoardController2 {
 	@PreAuthorize("principal.username == #board.writer")
 	@PostMapping("modify")
 	public String modify(MultipartFile[] uploadFile, BoardVO2 board,RedirectAttributes rttr,Criteria cri) {
+		String img_path=service.getImg(board.getIdx());
+		File file=new File(uploadPath+"\\"+img_path);
+		UploadUtils.delete(file);
 		for (MultipartFile multipartFile : uploadFile) {
 			if(multipartFile.getSize() > 0) {
 				board.setImg(UploadUtils.uploadFormPost(multipartFile, uploadPath));

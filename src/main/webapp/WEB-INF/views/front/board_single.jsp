@@ -111,12 +111,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 				<div class=" wow slideInRight animated"  data-wow-delay=" .5s" >
 					<div class=" blog-img" >
-						<c:if test=" ${not empty board.img}" >
+					
+						
 							<div class=" form-group" >
-
-								<img src=" /resources/upload/${board.img}"  id=" thumb_${i}" >
+							<c:if test="${board.img != null}">
+								<img src="/resources/upload/${board.img}"  id=" thumb_${i}" >
+							</c:if>
+								
 							</div>
-						</c:if>
+						
 					</div>
 					<div class=" blog-text" >
 						<h4 class=" w3l wow fadeInDown animated"  data-wow-delay=" .5s" >

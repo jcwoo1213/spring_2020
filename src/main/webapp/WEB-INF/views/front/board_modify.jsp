@@ -96,12 +96,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<h4 class="wow fadeIndown animated" data-wow-delay=".5s">modify</h4>
 						<form method="post" action="modify" enctype="multipart/form-data">
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-							<input class="wow fadeIndown animated" data-wow-delay=".6s" type="text" placeholder="title" name="title"required="" value="${board.title }">
-							<input type="hidden" name="img" value="">
+							<input class="wow fadeIndown animated" data-wow-delay=".6s" type="text" placeholder="title" name="title"required="" value="${board.title}">
+							<input type="hidden" name='uploadFile' value="">
 							<input type="hidden" name="writer" value="${board.writer}">
-							<textarea class="wow fadeIndown animated" data-wow-delay=".8s" placeholder="content" name="content" required="" >${board.content }</textarea>
+							<textarea class="wow fadeIndown animated" data-wow-delay=".8s" placeholder="content" name="content" required="" >${board.content}</textarea>
 							<div >
-								 <input type="file" class="form-control " name='uploadFile'>
+								 <input type="file" class="form-control "  name='uploadFile'>
 							</div>
 							<input type="hidden" value="${board.idx}" name="idx" placeholder="idx" >
 							<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>

@@ -9,6 +9,7 @@ import kr.ync.domain.Criteria;
 
 public interface AdminBoardMapper {
 
+	public String getImg(int idx);
 	public void modify(BoardVO2 board);
 
 	public int del(int idx);

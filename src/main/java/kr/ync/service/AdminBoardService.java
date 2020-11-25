@@ -9,6 +9,7 @@ import kr.ync.domain.Criteria;
 public interface AdminBoardService {
 	public void del(int idx);
 	
+	public String getImg(int idx);
 	public void modify(BoardVO2 board);
 	public BoardVO2 view(int idx);
 	public void updateCount(int idx);

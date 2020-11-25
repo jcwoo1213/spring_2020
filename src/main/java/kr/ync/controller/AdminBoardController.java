@@ -1,5 +1,7 @@
 package kr.ync.controller;
 
+import java.io.File;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -95,12 +97,15 @@ public class AdminBoardController {
 	@PreAuthorize("principal.username == #writer")
 	@PostMapping("del")
 	public String del(@RequestParam("idx") int idx,Criteria cri,@RequestParam("writer")String writer) {
+		String img_path=service.getImg(idx);
+		File file=new File(uploadPath+"\\"+img_path);
+		UploadUtils.delete(file);
 		log.info(idx);
 		System.out.println(idx);
 		service.del(idx);
 			
 		
-		return "redirect:/jcw/admin/list"+cri.getListLink();
+		return "redirect:/admin/board/list"+cri.getListLink();
 	}
 	@PreAuthorize("principal.username == #writer")
 	@PostMapping("modify_form")
@@ -115,6 +120,9 @@ public class AdminBoardController {
 	@PreAuthorize("principal.username == #board.writer")
 	@PostMapping("modify")
 	public String modify(MultipartFile[] uploadFile, BoardVO2 board,RedirectAttributes rttr,Criteria cri) {
+		String img_path=service.getImg(board.getIdx());
+		File file=new File(uploadPath+"\\"+img_path);
+		UploadUtils.delete(file);
 		for (MultipartFile multipartFile : uploadFile) {
 			if(multipartFile.getSize() > 0) {
 				board.setImg(UploadUtils.uploadFormPost(multipartFile, uploadPath));

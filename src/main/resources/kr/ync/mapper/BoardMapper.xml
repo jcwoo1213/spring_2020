@@ -31,7 +31,9 @@
 		select * from tbl_board where bno > 0 
 		]]>
 	</select>
-	
+	<select id="getImg" resultType="String">
+		select img from tbl_project_board where idx=#{idx}
+	</select>
 
 
 	  <insert id="create">
@@ -66,6 +68,8 @@
 		set title= #{title},
 		content=#{content}
 		<if test="img!=null">, img=#{img}
+		</if>
+		<if test="img==null">, img=null
 		</if>
 		where idx =
 		#{idx}

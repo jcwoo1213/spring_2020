@@ -305,9 +305,16 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<button data-oper='modify'  class="btn btn-default" >Modify</button>
 							
 					</c:if>
+					
+						<c:if test="${pinfo.username eq notice.writer}" >	
+
+						<button data-oper='modify'  class="btn btn-default" >Modify</button>
+							
+					</c:if>
 					<button data-oper='del'  class="btn btn-default" >delete</button>
+					<button data-oper='list'  class="btn btn-default" >list</button>	
 					<form id='operForm'  action="jcw/board/del"  method="post" >
-				<input type='hidden'  id='idx'  name='idx'  value='<c:out value=" ${board.idx}" />' >
+				<input type='hidden'  id='idx'  name='idx'  value='<c:out value="${board.idx}" />' >
 				<input type="hidden"  name="${_csrf.parameterName}"  value="${_csrf.token}"  /> 
 				<input type='hidden'  name='pageNum'  value='<c:out value="${cri.pageNum}" />' > 
 				<input type='hidden'  name='amount'  value='<c:out value="${cri.amount}" />' >

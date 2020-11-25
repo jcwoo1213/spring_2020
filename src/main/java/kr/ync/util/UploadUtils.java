@@ -41,7 +41,15 @@ public class UploadUtils {
 
 		return false;
 	}
-
+	
+	public static void delete(File file) {
+		System.out.println(file);
+		System.out.println(file.exists());
+		if(file.exists()) {
+			file.delete();
+		}
+	}
+	
 	@PostMapping("/uploadFormAction")
 	public static String uploadFormPost(MultipartFile uploadFile, String realUploadPath) {
 
@@ -76,14 +84,14 @@ public class UploadUtils {
 				uploadFile.transferTo(saveFile);
 
 				// upload 된 파일이 이미지일 경우 썸네일을 제작
-				if (checkImageType(saveFile)) {
-
-					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "s_" + saveFileName));
-
-					// 썸네일 사이즈를 지정해준다. 프로젝트에 따라 썸네일의 크기를 조절해서 사용
-					Thumbnailator.createThumbnail(uploadFile.getInputStream(), thumbnail, 100, 100);
-					thumbnail.close();
-				}
+//				if (checkImageType(saveFile)) {
+//
+//					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "s_" + saveFileName));
+//
+//					// 썸네일 사이즈를 지정해준다. 프로젝트에 따라 썸네일의 크기를 조절해서 사용
+//					Thumbnailator.createThumbnail(uploadFile.getInputStream(), thumbnail, 100, 100);
+//					thumbnail.close();
+//				}
 				
 				log.info("uploadFileName : " + uploadFileName);
 				log.info("saveFileName : " + saveFileName);

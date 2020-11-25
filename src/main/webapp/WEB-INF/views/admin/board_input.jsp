@@ -290,25 +290,28 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
         <div class="row">
           <h3 class="title1">게시글 등록</h3>
           <div class="form-three widget-shadow">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="create" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="writer" value="<sec:authentication property="principal.username"/>">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							<input type="hidden" name="=file" value="">
               <div class="form-group">
                 <label for="disabledinput" class="col-sm-2 control-label">제목</label>
                 <div class="col-sm-8">
-                  <input disabled="" type="text" class="form-control1" id="disabledinput" placeholder="Title:">
+                  <input name="title" type="text" class="form-control1" placeholder="Title:">
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="txtarea1" class="col-sm-2 control-label">Textarea</label>
+                <label for="txtarea1" class="col-sm-2 control-label">내용</label>
                 <div class="col-sm-8">
-                  <textarea name="txtarea1" id="txtarea1" cols="20" rows="20" class="form-control1"></textarea>
+                  <textarea name="content" id="txtarea1" cols="20" rows="20" class="form-control1"></textarea>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="txtarea1" class="col-sm-2 control-label">File input</label>
                 <div class="col-sm-8">
-                  <input type="file" id="exampleInputFile">
+                  <input type="file" name="uploadFile" id="exampleInputFile">
                 </div>
               </div>
 

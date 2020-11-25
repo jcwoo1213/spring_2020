@@ -88,6 +88,12 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 		mapper.updateCount(idx);
 	}
 
+	@Override
+	public String getImg(int idx) {
+		// TODO Auto-generated method stub
+		return mapper.getImg(idx);
+	}
+
 
 
 }

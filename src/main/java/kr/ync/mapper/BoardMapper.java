@@ -12,6 +12,7 @@ import kr.ync.domain.Criteria;
 public interface BoardMapper {
 	public void modify(BoardVO2 board);
 
+	public String getImg(int idx);
 	public int del(int idx);
 	
 	

@@ -32,7 +32,9 @@
 		]]>
 	</select>
 	
-
+	<select id="getImg" resultType="String">
+		select img from tbl_project_board where idx=#{idx}
+	</select>
 
 	  <insert id="create">
 		insert into tbl_project_board (idx, title, content, writer <if test="img!=null">, img</if>)
@@ -66,6 +68,8 @@
 		set title= #{title},
 		content=#{content}
 		<if test="img!=null">, img=#{img}
+		</if>
+		<if test="img==null">, img=null
 		</if>
 		where idx =
 		#{idx}

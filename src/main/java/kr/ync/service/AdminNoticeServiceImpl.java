@@ -66,5 +66,6 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 		log.info("create:"+notice);
 		mapper.create(notice);
 	}
+	
 
 }

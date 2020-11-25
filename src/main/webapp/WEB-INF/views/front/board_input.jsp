@@ -95,7 +95,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="wow agile fadeInLeft animated" data-wow-delay=".5s">
 					<div class="address-grid">
 						<h4 class="wow fadeIndown animated" data-wow-delay=".5s">write</h4>
-						<form action="/jcw/comment/create" method="post" enctype="multipart/form-data">
+						<form action="create" method="post" enctype="multipart/form-data">
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							<input type="hidden" name="=file" value="">
 							<input class="wow fadeIndown animated" data-wow-delay=".6s" name="title"type="text" placeholder="title" required="">
