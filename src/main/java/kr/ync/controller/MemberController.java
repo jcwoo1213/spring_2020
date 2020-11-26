@@ -28,10 +28,11 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @RequestMapping("jcw/member/*")
-@PreAuthorize("isAnonymous()")
+@PreAuthorize("permitAll")
+
 @Log4j
 public class MemberController {
-
+	@PreAuthorize("isAnonymous()")
 	@GetMapping(value="/create_form")
 	public String create_form(Locale locale, Model model) {
 
@@ -44,7 +45,7 @@ public class MemberController {
 	@Autowired
 	private PasswordEncoder pwencoder;
 	
-
+	@PreAuthorize("isAnonymous()")
 	@RequestMapping(value = "/create",method = RequestMethod.POST)
 	public String create(MemberVO2 member,RedirectAttributes rttr) {
 		log.info("member:"+member);

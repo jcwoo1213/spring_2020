@@ -64,7 +64,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
             <h1><a class="navbar-brand" href="index.html"><span class="fa fa-area-chart"></span> Glance<span class="dashboard_text">Design dashboard</span></a></h1>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="sidebar-menu">
+            <ul class="sidebar-menu">
               <li class="header">MAIN NAVIGATION</li>
               <li class="treeview">
                 <a href="member_manage.html">
@@ -287,59 +287,51 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		<!-- main content start-->
 		<div id="page-wrapper">
 			<div class="main-page">
-				<h2 class="title1">회원관리</h2>
-				<div class="blank-page widget-shadow scroll" id="style-2 div1">
-          <table class="table table-hover">
-             <thead>
-               <tr>
-                 <th>id</th>
-                  <th>username</th>
-                  <th>권한</th>
-                  <th>삭제</th>
+        <div class="row">
+          <h3 class="title1">관리자 추가</h3>
+          <div class="form-three widget-shadow">
+            <form id="create_form"class="form-horizontal" action="create" method="post" enctype="multipart/form-data">
+            
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>				
+              <div class="form-group">
+                <label for="disabledinput" class="col-sm-2 control-label">id</label>
+                <div class="col-sm-8">
+                 <input type="text" Name="userid" id="userid" placeholder="userid" required=""><input id="idcheckbtn"type="button" value="check">
+                </div>
+                
+              </div>
+              <div class="form-group">
+                <label for="disabledinput" class="col-sm-2 control-label">비밀번호</label>
+                <div class="col-sm-8">
+                  <input type="password" Name="userpw" placeholder="userpw" required="">
+                </div>
+                
+              </div>
 
-                </tr>
-             </thead>
-             <tbody>
-               <c:forEach items="${member}" var="member">
-						<tr>
-							<td>${member.userid}</td>
-							<td>${member.userName}</td>
-							<td>${member.auth}</td>
-							<td><button data-oper='del'  class="btn btn-default" value='<c:out value="${member.userid}" />'>delete</button></td>
-						</tr>
-					</c:forEach>
-               
+              <div class="form-group">
+                <label for="txtarea1" class="col-sm-2 control-label">비밀번호확인</label>
+                <div class="col-sm-8">
+                  <input type="password" Name="check" placeholder="check" required="">
+                </div>
+              </div>
 
-             </tbody>
-           </table>
-           <div class="paging">
-           <ul class="pageMove">
-           	<c:if test="${pageMaker.prev}">
-							<a class="pageMove" href="${pageMaker.startPage -1}">Previous</a>
-						</c:if>
+              <div class="form-group">
+                <label for="txtarea1" class="col-sm-2 control-label">user name</label>
+                <div class="col-sm-8">
+                  <input type="text" Name="userName" placeholder="username" required="">
+                </div>
+              </div>
+              <input type="hidden" name="idcheck" value="0" id="idcheck">
+				<input type="hidden" name="auth" placeholder="auth" value="ROLE_ADMIN">
+				<input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}" />
 
-						<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
-							
-								<a class="pageMove" href="${num}">${num}</a>
-							
-						</c:forEach>
+                   <button type="submit" class="btn btn-default">Submit</button>
+                   <button type="reset" class="btn btn-default">reset</button>
 
-						<c:if test="${pageMaker.next}">
-							<a class="pageMove" href="${pageMaker.endPage +1 }">Next</a>
-						</c:if>
-						
-          	</ul>
+            </div>
+            </form>
           </div>
-          <form id='actionForm' action="list" method='get'>
-					<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
-					<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
-			</form>
-			<form id='operForm'  action="jcw/board/del"  method="post" >
-				<input type='hidden'  id='id'  name='userid'  value='' >
-				<input type="hidden"  name="${_csrf.parameterName}"  value="${_csrf.token}"  /> 
-				
-				</form>
-				</div>
+        </div>
 			</div>
 		</div>
 		<!--footer-->
@@ -359,6 +351,23 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../../resources/admin/js/classie.js"></script>
 		<script>
+		function getcheck(param, callback, error) {
+			
+			var writer = '<sec:authentication property="principal.username"/>';
+			var userid = param.userid; // param.page 가 null 이면 1로 설정 
+			
+			$.getJSON("/jcw/member/check/" + userid + ".json", function(data) {
+				if (callback) {
+					callback(data); // 댓글 목록만 가져오는 경우 
+		            //callback(data.replyCnt,data.list); //댓글 숫자와 목록을 가져오는 경우
+		            //console.log("data========"+data); 
+				}
+			}).fail(function(xhr, status, err) {
+				if (error) {
+					error(xhr.responseText, xhr.status);
+				}
+			});
+		}
 			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
@@ -375,52 +384,38 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 					classie.toggle( showLeftPush, 'disabled' );
 				}
 			}
-
-			$(document).ready(function(){
-				var actionForm = $("#actionForm");
-				var operForm = $("#operForm" );
-				$(".pageMove a").on("click", function(e) {
-					 e.preventDefault();
-					 console.log('click');
-					 actionForm.find("input[name='pageNum']").val($(this).attr("href"));
-					 actionForm.submit();
+			$(document).ready(function() {
+				
+				$("#idcheckbtn").on("click",function(e){
+					var id=$("#userid").val();
+					getcheck({
+						userid :id
+					},function(data){
+						if(data!=0){
+							alert("id중복입니다");
+							$("#idcheck").val(0);
+						}else{
+							alert("사용가능");
+							$("#idcheck").val(1);
+						}
+						})
+					})
+				$("#create_form").on("submit",function(event){
+					var password=$(this).find('[name=userpw]').val();
+					var check=$(this).find('[name=check]').val();
+					var id=$(this).find('[name=userid]').val();
+					var idcheck=$(this).find('[name=idcheck]').val();
+					if(idcheck==0){
+						alert("id중복확인해주세요");
+						return false;
+					}
+					if(check!=password){
+						alert("비밀번호가 일치하지 않습니다");
+						return false;
+					}
 				});
-				$(" button[data-oper='del']").on("click" , function(e) {
-					
-					operForm.find("input[name='userid']").val($(this).val());
-					operForm.attr("action" , "del" ).submit();
-
-				});
-				})
+			});
 		</script>
-	<c:if test='${del_result == "success"}'>
-      <script>
-      $(document).ready(function(){
-      	alert("회원삭제성공");
-      });
-      </script>
-	</c:if>
-	<c:if test='${del_result == "fail"}'>
-      <script>
-      $(document).ready(function(){
-      	alert("회원삭제실패");
-      });
-      </script>
-	</c:if>  
-	<c:if test='${create_result == "success"}'>
-      <script>
-      $(document).ready(function(){
-      	alert("admin생성성공");
-      });
-      </script>
-	</c:if>  
-	<c:if test='${create_result == "fail"}'>
-      <script>
-      $(document).ready(function(){
-      	alert("admin생성실패");
-      });
-      </script>
-	</c:if>    
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
 	<!--scrolling js-->

@@ -23,9 +23,9 @@ public class AdminMemberServiceImpl implements AdminMemberService {
 	}
 
 	@Override
-	public void create(MemberVO2 member) {
+	public int create(MemberVO2 member) {
 		// TODO Auto-generated method stub
-		mapper.create(member);
+		return mapper.create(member);
 	}
 
 	@Override

@@ -64,5 +64,6 @@
 	<delete id="delete">
 		delete tbl_project_member where id=#{userid}
 	</delete>
+
 	
 </mapper>
