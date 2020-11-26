@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ync.mapper.AdminMessageMapper">
+	
+	<insert id="input_answer">
+		insert into tbl_project_answer(idx,message_idx,content,writer,title)
+		values (seq_project_answer.nextval,#{message_idx},#{content},#{writer},#{title})
+	</insert>
+	
+
+	
+
+	<select id="total" resultType="int">
+		select count(*) from tbl_project_message 
+	</select>
+	<select id="get" resultType="kr.ync.domain.MessageVO">
+		select * from tbl_project_message where idx=#{idx}
+	</select>
+	<select id="getanswer" resultType="kr.ync.domain.AnswerVO">
+		select * from tbl_project_answer where message_idx=#{idx}
+	</select>
+
+
+	<select id="getListWithPaging" resultType="kr.ync.domain.MessageVO">
+		<![CDATA[
+	 		SELECT	idx,
+	 				title,
+	 				content,
+	 				writer,
+	 				regdate
+	 		FROM	(SELECT 
+	      					rownum rn,
+	      					idx,
+			 				title,
+			 				content,
+			 				writer,
+			 				regdate
+	    			FROM	tbl_project_message
+	    			WHERE	idx > 0
+	    			AND		rownum <= #{cri.pageNum} * #{cri.amount}
+	    			ORDER BY idx desc
+	   				)
+	   		WHERE	rn > (#{cri.pageNum} -1) * #{cri.amount}
+		]]>
+	</select>
+	<!--  <select id="getListWithPaging" resultType="kr.ync.domain.ReplyVO">
+		<![CDATA[
+	 		SELECT	idx,
+	 				board_idx,
+	 				content,
+	 				writer,
+	 				regdate
+	 		FROM	(SELECT /*+INDEX_DESC(tbl_reply idx_reply) */ 
+	      					rownum rn,
+	      					idx,
+			 				board_idx,
+			 				content,
+			 				writer,
+			 				regdate
+	    			FROM	tbl_project_comment
+	    			WHERE	board_idx =  #{board_idx}
+	    			AND		idx > 0
+	    			AND		rownum <= #{cri.pageNum} * #{cri.amount}
+	   				)
+	   		WHERE	rn > (#{cri.pageNum} -1) * #{cri.amount}
+		]]>
+	</select>-->
+</mapper>
