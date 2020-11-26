@@ -114,7 +114,7 @@
  <script type="text/javascript">
       $(document).ready(function(){
     	  var result = '<c:out value="${result}"/>';
-        if(result!=''){
+        if(result=='success'){
       		alert("회원가입성공");
         }
       });

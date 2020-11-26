@@ -15,17 +15,20 @@ public class MemberServiceImpl implements MemberService{
 	@Autowired
 	MemberMapper mapper;
 	
-	public void create_member(MemberVO2 member) {
-		log.info(member);
 
-		System.out.println(member);
-		mapper.create(member);
-	}
 
 	@Override
 	public int getCount(String userid) {
 		// TODO Auto-generated method stub
 		return mapper.getCount(userid);
+	}
+
+
+
+	@Override
+	public int create(MemberVO2 member) {
+		// TODO Auto-generated method stub
+		return mapper.create(member);
 	}
 
 }

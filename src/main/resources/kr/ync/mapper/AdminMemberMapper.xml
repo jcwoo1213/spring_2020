@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ync.mapper.AdminMemberMapper">
+
+
+	<resultMap type="kr.ync.domain.MemberVO2" id="memberMap2">
+		<id property="userid" column="id"/>
+		<result property="userid" column="id"/>
+		<result property="userpw" column="password"/>
+		<result property="userName" column="name"/>
+		<result property="auth" column="auth"/>
+	</resultMap>
+	<resultMap type="kr.ync.domain.AuthVO" id="authMap">
+		<result property="userid" column="id"/>
+		<result property="auth" column="auth"/>
+	</resultMap>
+
+	<!--
+	member_auth table은 사용 하지 않고 AuthVO만 사용한다.
+	tbl_member 의 autho 컬럼 정보만 따로 담아는 객차이다.
+	Spring Security의 기본 사용법과 다르게 tbl_member에 권한 컴럼(auth)을
+	넣어서 사용하기에 기본 사용법과 달라진다.
+	-->
+		<select id="ListWithPaging" resultMap="memberMap2">
+		<![CDATA[
+  		SELECT	id,
+				password,
+				auth,
+				name
+		FROM	(SELECT /*+INDEX_DESC(tbl_project_member XPKTBL_MEMBER) */
+						rownum rn,
+						id,
+						password,
+						auth,
+						name
+				FROM	tbl_project_member
+				WHERE	rownum <= #{pageNum} * #{amount}
+				)
+		WHERE rn > (#{pageNum} -1) * #{amount}
+		]]>
+	</select>
+	<select id="getCount" resultType="int">
+	SELECT count(*) 
+	FROM tbl_project_member
+	WHERE id=#{userid}
+	</select>
+	<select id="getTotalCount" resultType="int">
+	SELECT count(*) 
+	FROM tbl_project_member
+	</select>
+	<select id="read2" resultMap="memberMap2">
+	SELECT	id,
+			password,
+			name,
+			auth
+	FROM	tbl_project_member
+	WHERE	id = #{userid} 
+	</select>
+	<insert id="create">
+		insert into tbl_project_member (id,password,auth,name)
+		values (#{userid}, #{userpw}, #{auth}, #{userName})
+	</insert>
+	
+	<delete id="delete">
+		delete tbl_project_member where id=#{userid}
+	</delete>
+	
+</mapper>

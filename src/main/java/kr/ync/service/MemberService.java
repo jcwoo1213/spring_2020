@@ -5,6 +5,6 @@ import kr.ync.domain.MemberVO2;
 
 public interface MemberService {
 
-	public void create_member(MemberVO2 memver);
+	public int create(MemberVO2 member);
 	public int getCount(String userid);
 }

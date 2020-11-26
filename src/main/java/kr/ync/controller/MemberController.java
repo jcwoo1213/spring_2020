@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.ync.domain.CommentPageDTO;
 import kr.ync.domain.Criteria;
@@ -45,10 +46,13 @@ public class MemberController {
 	
 
 	@RequestMapping(value = "/create",method = RequestMethod.POST)
-	public String create(MemberVO2 member) {
+	public String create(MemberVO2 member,RedirectAttributes rttr) {
 		log.info("member:"+member);
 		member.setUserpw(pwencoder.encode(member.getUserpw()));
-		service.create_member(member);
+		int result=service.create(member);
+		if(result>0) {
+			rttr.addFlashAttribute("result", "success");
+		}
 		return "redirect:/customLogin";
 	}
 	
