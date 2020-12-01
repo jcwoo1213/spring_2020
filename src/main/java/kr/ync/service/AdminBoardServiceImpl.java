@@ -5,11 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.ync.domain.BoardVO;
+
 import kr.ync.domain.BoardVO2;
 import kr.ync.domain.Criteria;
 import kr.ync.mapper.AdminBoardMapper;
-import kr.ync.mapper.BoardMapper;
 import lombok.extern.log4j.Log4j;
 
 @Log4j

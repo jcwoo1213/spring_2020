@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -16,25 +21,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--mobile apps-->
 <!--Custom Theme files -->
-<link href="../.../../resources/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-<link href="../.../../resources/css/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="../../../resources/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="../../../resources/css/style.css" type="text/css" rel="stylesheet" media="all">
 <!-- //Custom Theme files -->
 <!-- js -->
-<script src="../.../../resources/js/jquery-1.11.1.min.js"></script>
+<script src="../../../resources/js/jquery-1.11.1.min.js"></script>
 <!-- //js -->
 <!--web-fonts-->
 <link href='http://fonts.googleapis.com/css?family=Stint+Ultra+Condensed' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!--animate-->
-<link href="../.../../resources/css/animate.css" rel="stylesheet" type="text/css" media="all">
-<script src="../.../../resources/js/wow.min.js"></script>
+<link href="../../../resources/css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="../../../resources/js/wow.min.js"></script>
 	<script>
 		 new WOW().init();
 	</script>
 <!--//end-animate-->
 <!-- start-smooth-scrolling-->
-<script type="text/javascript" src="../.../../resources/js/move-top.js"></script>
-<script type="text/javascript" src="../.../../resources/js/easing.js"></script>
+<script type="text/javascript" src="../../../resources/js/move-top.js"></script>
+<script type="text/javascript" src="../../../resources/js/easing.js"></script>
 <script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){
@@ -55,7 +60,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<h1 class="wow zoomIn animated" data-wow-delay=".5s"><a href="index.html">Tasty Food</a></h1>
 				</div>
 				<div class="top-nav">
-					<span class="menu"><img src="../.../../resources/img/menu.png" alt=""/></span>
+					<span class="menu"><img src="../../../resources/img/menu.png" alt=""/></span>
 					<ul>
 						<li class="wow slideInDown animated" data-wow-delay=".5s"><a class="active" href="/jcw/">Home</a></li>
 						<li class="wow slideInDown" data-wow-delay=".6s"><a href="/jcw/about">About</a></li>
@@ -83,87 +88,49 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
 	<!--//banner-->
 	<!--single-page-->
-	<div class="blog single-page">
-		<div class="container">
-			<div class="blog-info">
-				<div class="blog-left wow slideInLeft animated" data-wow-delay=".5s">
-					<h6>25<span>th</span></h6>
-					<h5>April</h5>
-				</div>
-				<div class="blog-right wow slideInRight animated" data-wow-delay=".5s">
+	<div class=" blog single-page" >
+		<div class=" container" >
+			<div class=" blog-info" >
 
-					<div class="blog-text">
-						<h4 class="w3l wow fadeInDown animated" data-wow-delay=".5s">Integer interdum eros vitae sem ultrices sed eleifend tellus tincidunt</h4>
-						<p class="wow fadeInDown animated" data-wow-delay=".5s">"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-						pariatur,Duis aute irure dolor in quis nostrud exercitation ullamco
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-						pariatur</p>
+				<div class=" wow slideInRight animated"  data-wow-delay=" .5s" >
 
+					<div class=" blog-text" >
+						<h4 class=" w3l wow fadeInDown animated"  data-wow-delay=" .5s" >
+							<c:out value=" ${notice.title}"  />
+						</h4>
+						<p class=" wow fadeInDown animated"  data-wow-delay=" .5s" >
+							<c:out value=" ${notice.content}"  />
+						</p>
+						<div class=" article-links wow fadeInDown animated"  data-wow-delay=" .7s" ></div>
 					</div>
 				</div>
-				<div class="clearfix"> </div>
+				<div class=" clearfix" ></div>
 			</div>
-			<!--admin-text-->
-			<div class="admin-text wthree wow fadeInDown animated" data-wow-delay=".5s">
-				<h5>Written By Admin</h5>
-				<div class="admin-text-left">
-					<a href="#"><img src="../.../../resources/img/icon1.png" alt=""/></a>
-				</div>
-				<div class="admin-text-right">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
-					sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					<span>View all posts by:<a href="#"> Admin </a></span>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-			<!--//admin-text-->
-			<!--related-posts-->
-			<div class="row related-posts agile">
-				<h3 class="wow fadeInDown animated" data-wow-delay=".5s">Related Posts</h3>
-				<div class="col-xs-3 col-md-3 related-grids wow zoomIn animated" data-wow-delay=".5s">
-					<a href="single.html" class="thumbnail">
-						<img src="../.../../resources/img/g7.jpg" alt=""/>
-					</a>
-					<h5><a href="single.html">Lorem Ipsum is simply</a></h5>
-				</div>
-				<div class="col-xs-3 col-md-3 related-grids wow zoomIn animated" data-wow-delay=".5s">
-					<a href="single.html" class="thumbnail">
-						<img src="../.../../resources/img/g3.jpg" alt=""/>
-					</a>
-					<h5><a href="single.html">Lorem Ipsum is simply</a></h5>
-				</div>
-				<div class="col-xs-3 col-md-3 related-grids wow zoomIn animated" data-wow-delay=".6s">
-					<a href="single.html" class="thumbnail">
-						<img src="../.../../resources/img/g5.jpg" alt=""/>
-					</a>
-					<h5><a href="single.html">Lorem Ipsum is simply</a></h5>
-				</div>
-				<div class="col-xs-3 col-md-3 related-grids agileits wow zoomIn animated" data-wow-delay=".6s">
-					<a href="single.html" class="thumbnail">
-						<img src="../.../../resources/img/g7.jpg" alt=""/>
-					</a>
-					<h5><a href="single.html">Lorem Ipsum is simply</a></h5>
-				</div>
-			</div>
-			<!--//related-posts-->
 
-			<div class="artical-commentbox">
-				<h3 class="wow fadeInDown animated" data-wow-delay=".5s">leave a comment</h3>
-				<div class="table-form agileinfo">
-					<form>
-						<input class="wow fadeInDown animated" data-wow-delay=".5s" type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-						<input class="wow fadeInDown animated" data-wow-delay=".6s" type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-						<input class="wow fadeInDown animated" data-wow-delay=".7s" type="text" value="Phone number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone number';}">
-						<textarea class="wow fadeInDown animated" data-wow-delay=".7s" value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
-						<input class="wow zoomIn animated" data-wow-delay=".5s" type="submit" value="Send">
-					</form>
-				</div>
+			<form id='listForm'  action="/jcw/notice/list"  method="get" >
+				<input type='hidden'  name='pageNum'  value='<c:out value="${cri.pageNum}" />' > 
+				<input type='hidden'  name='amount'  value='<c:out value="${cri.amount}" />' >
+			</form>
+			<!--admin-text-->
+			<div class="admin-text wthree wow fadeInDown animated" 
+				data-wow-delay=" .5s" >
+				<h5>
+					Written By
+					<c:out value="${notice.writer}"  />
+				</h5>
+				<sec:authentication property="principal"  var="pinfo"  />
+				<sec:authorize access="isAuthenticated()" >
+
+				<h1>
+					<button data-oper='list'  class="btn btn-default" >list</button>										
+				</h1>	
+				</sec:authorize>
+				
 			</div>
 		</div>
+		<!--//admin-text-->
+
+=
 	</div>
 	<!--//blog-->
 	<!--footer-->
@@ -199,6 +166,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				easingType: 'linear'
 			};
 
+			$(" button[data-oper='list']" ).on("click", function(e) {
+
+				$("#listForm" ).submit();
+
+			});
 			$().UItoTop({ easingType: 'easeOutQuart' });
 
 		});
@@ -206,12 +178,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 	<!--//smooth-scrolling-of-move-up-->
 	<!--scrolling js-->
-	<script src="../.../../resources/js/jquery.nicescroll.js"></script>
-	<script src="../.../../resources/js/scripts.js"></script>
+	<script src="../../../resources/js/jquery.nicescroll.js"></script>
+	<script src="../../../resources/js/scripts.js"></script>
 	<!--//scrolling js-->
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../.../../resources/js/bootstrap.js"></script>
+    <script src="../../../resources/js/bootstrap.js"></script>
 </body>
 </html>

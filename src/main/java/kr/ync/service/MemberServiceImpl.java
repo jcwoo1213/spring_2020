@@ -1,10 +1,10 @@
 package kr.ync.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 import org.springframework.stereotype.Service;
 
-import kr.ync.domain.MemberVO;
+
 import kr.ync.domain.MemberVO2;
 import kr.ync.mapper.MemberMapper;
 import lombok.extern.log4j.Log4j;

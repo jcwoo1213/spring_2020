@@ -2,7 +2,7 @@ package kr.ync.service;
 
 import java.util.List;
 
-import kr.ync.domain.BoardVO;
+
 import kr.ync.domain.BoardVO2;
 import kr.ync.domain.Criteria;
 

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import kr.ync.domain.CommentPageDTO;
 import kr.ync.domain.CommentVO;
 import kr.ync.domain.Criteria;
-import kr.ync.mapper.BoardMapper;
 import kr.ync.mapper.CommentMapper;
 import lombok.extern.log4j.Log4j;
 

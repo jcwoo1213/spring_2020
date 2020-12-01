@@ -5,7 +5,7 @@ import java.util.List;
 import kr.ync.domain.CommentPageDTO;
 import kr.ync.domain.CommentVO;
 import kr.ync.domain.Criteria;
-import kr.ync.domain.PageDTO;
+
 
 public interface CommentService {
 	
