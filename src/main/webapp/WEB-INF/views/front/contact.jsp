@@ -256,7 +256,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							}
 							for (var i = 0, len = list.length || 0; i < len; i++) {
 								str += "<tr><td>"+list[i].idx+"</td>";
-								str += "<td><a href='contact/view?idx="+list[i].idx+"'>"+list[i].title+"</a></td>";
+								str += "<td><a href='view?idx="+list[i].idx+"'>"+list[i].title+"</a></td>";
 								str += "<td>"+ list[i].writer+ "</td>";
 								str += "<td>"+ displayTime(list[i].regdate)+ "</td></tr>";
 							}

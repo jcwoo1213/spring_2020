@@ -42,20 +42,22 @@ public class AdminBoardController {
 	@GetMapping("/create")
 	@PreAuthorize("isAuthenticated()")
 	public String create() {
+		
 		return "admin/board_input";
+		
 	}
 
 	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/create")
 	public String register(MultipartFile[] uploadFile, BoardVO2 board, RedirectAttributes rttr) {
+		
 		for (MultipartFile multipartFile : uploadFile) {
 			if(multipartFile.getSize() > 0) {
 				board.setImg(UploadUtils.uploadFormPost(multipartFile, uploadPath));
 			}
 		}
-		log.info(board);
-		System.out.println(board);
-		log.info("register: " + board);
+		
+		log.info("create: " + board);
 		service.create(board);
 		return "redirect:/admin/board/list";
 	}
@@ -94,27 +96,29 @@ public class AdminBoardController {
 		model.addAttribute("cri", cri);
 		return"admin/board_view";
 	}
+	
 	@PreAuthorize("principal.username == #writer")
 	@PostMapping("del")
 	public String del(@RequestParam("idx") int idx,Criteria cri,@RequestParam("writer")String writer) {
+		
 		String img_path=service.getImg(idx);
 		File file=new File(uploadPath+"\\"+img_path);
+		
 		UploadUtils.delete(file);
 		log.info(idx);
-		System.out.println(idx);
 		service.del(idx);
 			
-		
 		return "redirect:/admin/board/list"+cri.getListLink();
 	}
+	
 	@PreAuthorize("principal.username == #writer")
 	@PostMapping("modify_form")
 	public String modify_form(@RequestParam("idx")int idx,Model model,Criteria cri,@RequestParam("writer")String writer) {
 		BoardVO2 board=service.view(idx);
-		System.out.println(board);
+		
 		model.addAttribute("board", board);
 		model.addAttribute("cri", cri);
-		System.out.println(cri);
+
 		return"admin/board_modify";
 	}
 	@PreAuthorize("principal.username == #board.writer")
@@ -122,16 +126,18 @@ public class AdminBoardController {
 	public String modify(MultipartFile[] uploadFile, BoardVO2 board,RedirectAttributes rttr,Criteria cri) {
 		String img_path=service.getImg(board.getIdx());
 		File file=new File(uploadPath+"\\"+img_path);
+		
 		UploadUtils.delete(file);
+		
 		for (MultipartFile multipartFile : uploadFile) {
 			if(multipartFile.getSize() > 0) {
 				board.setImg(UploadUtils.uploadFormPost(multipartFile, uploadPath));
 			}
 		}
+		
 		log.info(board);
-		System.out.println(cri);
-		System.out.println(board);
 		service.modify(board);
+		
 		return "redirect:/admin/board/view"+cri.getListLink()+"&idx="+board.getIdx();
 	}
 }

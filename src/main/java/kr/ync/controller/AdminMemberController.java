@@ -31,17 +31,21 @@ public class AdminMemberController {
 		model.addAttribute("member", service.ListWithPaging(cri));
 		int total=service.getTotalCount();
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
+		
 		return "admin/member_manage";
 	}
 	@PostMapping("del")
 	public String del(@RequestParam("userid") String id,RedirectAttributes rttr,Criteria cri) {
+		
 		System.out.println(id);
 		int result=service.delete(id);
+		
 		if(result>0) {
 			rttr.addFlashAttribute("del_result", "success");
 		}else {
 			rttr.addFlashAttribute("del_result", "fail");
 		}
+		
 		return "redirect:/admin/member/list"+cri.getListLink();
 	}
 	@GetMapping("create")
@@ -52,11 +56,13 @@ public class AdminMemberController {
 	@PostMapping("create")
 	public String create(MemberVO2 member,RedirectAttributes rttr) {
 		int result=service.create(member);
+		
 		if(result>0) {
 			rttr.addFlashAttribute("create_result", "success");
-		}else {
+		} else {
 			rttr.addFlashAttribute("create_result", "fail");
 		}
+		
 		return "redirect:/admin/member/list";
 	}
 	

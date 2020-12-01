@@ -43,6 +43,7 @@ public class ContactController {
 	@GetMapping("view")
 	public String view(Model model,int idx) {
 		model.addAttribute("message", service.get(idx));
+		model.addAttribute("answer", service.getanswer(idx));
 		return "front/contact_view";
 	}
 	@GetMapping(value = "/test/{page}", produces = { MediaType.APPLICATION_XML_VALUE,

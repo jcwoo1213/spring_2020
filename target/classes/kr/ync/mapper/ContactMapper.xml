@@ -8,26 +8,30 @@
 	</insert>
 	
 
+
 	
 	<select id="getList" resultType="kr.ync.domain.MessageVO">
 		select * from tbl_project_message where writer=#{writer} order by idx 
 	</select>
+	
+	<select id="getanswer" resultType="kr.ync.domain.AnswerVO">
+		select * from tbl_project_answer where message_idx=#{idx}
+	</select>
+	
 	<select id="total" resultType="int">
 		select count(*) from tbl_project_message where writer=#{writer}
 	</select>
+	
 	<select id="get" resultType="kr.ync.domain.MessageVO">
 		select * from tbl_project_message where idx=#{idx}
 	</select>
-	<update id="modify">
-		update tbl_project_comment
-		set 
-		content=#{content}
-		where idx =
-		#{idx}
-	</update>
+	
+
+	
 	<select id="getTotal" resultType="int">
 		select count(*) from tbl_project_comment where board_idx=#{board_idx}
 	</select>
+	
 	<select id="getListWithPaging" resultType="kr.ync.domain.MessageVO">
 		<![CDATA[
 	 		SELECT	*

@@ -102,17 +102,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<input class="wow fadeIndown animated" data-wow-delay=".9s" type="button" value="back" onclick="history.go(-1)">
 					</div>
 				</div>
+				<c:if test="${answer !=null}">
 				<div class="col-md-6 address-right wow agile fadeInLeft animated" data-wow-delay=".5s">
 					<div class="address-grid">
 						<h4 class="wow fadeIndown animated" data-wow-delay=".5s">reply</h4>
-						writer:<input class="wow fadeIndown animated" data-wow-delay=".6s" type="text" placeholder="writer" id="writer" name="writer" required="" value="${message.writer} " readonly>
-						title:<input class="wow fadeIndown animated" data-wow-delay=".6s" type="text" placeholder="title" id="title" name="title" required="" value="${message.title} " readonly>
-						message:<textarea class="wow fadeIndown animated" data-wow-delay=".8s" placeholder="Message" required="" id="content" name="content" value=" " readonly>${message.content}</textarea>
+						writer:<input class="wow fadeIndown animated" data-wow-delay=".6s" type="text" placeholder="writer" id="writer" name="writer" required="" value="${answer.writer} " readonly>
+						title:<input class="wow fadeIndown animated" data-wow-delay=".6s" type="text" placeholder="title" id="title" name="title" required="" value="${answer.title} " readonly>
+						message:<textarea class="wow fadeIndown animated" data-wow-delay=".8s" placeholder="Message" required="" id="content" name="content" value=" " readonly>${answer.content}</textarea>
 
 					<input class="wow fadeIndown animated" data-wow-delay=".9s" type="button" value="back" onclick="history.go(-1)">
 					</div>
 				</div>
-
+				</c:if>
 			</div>
 		</div>
 	</div>
