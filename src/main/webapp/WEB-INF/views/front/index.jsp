@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -6,6 +9,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 <html>
+<style>
+	.content{
+	  	width			: 200px;
+	  	height        : 100px;     /* 너비는 변경될수 있습니다. */
+	  	white-space: nowrap; 
+	 	overflow: hidden; 
+	 	text-overflow: ellipsis;
+
+
+
+	  	white-space: normal; 
+ 		word-wrap: break-word; 
+		display: -webkit-box; 
+		webkit-line-clamp: 3;
+ 		webkit-box-orient: vertical;
+	}
+</style>
 <head>
 <title>Tasty Food a Hotel Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
 <!--mobile apps-->
@@ -16,27 +36,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--mobile apps-->
 <!--Custom Theme files -->
-<link href="../../../resources/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-<link href="../../../resources/css/style.css" type="text/css" rel="stylesheet" media="all">
-<link rel="stylesheet" href="../../../resources/css/flexslider.css" type="text/css" media="screen" />
+<link href="../../resources/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="../../resources/css/style.css" type="text/css" rel="stylesheet" media="all">
+<link rel="stylesheet" href="../../resources/css/flexslider.css" type="text/css" media="screen" />
 <!-- //Custom Theme files -->
 <!-- js -->
-<script src="../../../resources/js/jquery-1.11.1.min.js"></script>
+<script src="../../resources/js/jquery-1.11.1.min.js"></script>
 <!-- //js -->
 <!--web-fonts-->
 <link href='http://fonts.googleapis.com/css?family=Stint+Ultra+Condensed' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!--//web-fonts-->
 <!--animate-->
-<link href="../../../resources/css/animate.css" rel="stylesheet" type="text/css" media="all">
-<script src="../../../resources/js/wow.min.js"></script>
+<link href="../../resources/css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="../../resources/js/wow.min.js"></script>
 	<script>
 		 new WOW().init();
 	</script>
 <!--//end-animate-->
 <!-- start-smooth-scrolling-->
-<script type="text/javascript" src="../../../resources/js/move-top.js"></script>
-<script type="text/javascript" src="../../../resources/js/easing.js"></script>
+<script type="text/javascript" src="../../resources/js/move-top.js"></script>
+<script type="text/javascript" src="../../resources/js/easing.js"></script>
 <script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){
@@ -57,11 +77,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<h1 class="wow zoomIn animated" data-wow-delay=".5s"><a href="index.html">Exercise story</a></h1>
 				</div>
 				<div class="top-nav">
-					<span class="menu"><img src="../../../resources/img/menu.png" alt=""/></span>
+					<span class="menu"><img src="../../resources/img/menu.png" alt=""/></span>
 					<ul>
 						<li class="wow slideInDown animated" data-wow-delay=".5s"><a class="active" href="/jcw/">Home</a></li>
 						<li class="wow slideInDown" data-wow-delay=".6s"><a href="/jcw/about">About</a></li>
-						<li class="wow slideInDown" data-wow-delay=".7s"><a href="/jcw/notice">notice</a></li>
+						<li class="wow slideInDown" data-wow-delay=".7s"><a href="/jcw/notice/list">notice</a></li>
 						<li class="wow slideInDown" data-wow-delay=".8s"><a href="/jcw/board/list">Board</a></li>
 						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/jcw/contact/index">Contact</a></li>
 						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/customLogout">logout</a></li>
@@ -96,7 +116,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</ul>
 					<div class="clearfix"></div>
 					<!--FlexSlider-->
-					<script defer src="../../../resources/js/jquery.flexslider.js"></script>
+					<script defer src="../../resources/js/jquery.flexslider.js"></script>
 					<script type="text/javascript">
 						$(window).load(function(){
 						  $('.flexslider').flexslider({
@@ -123,33 +143,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<h3 class="title wow fadeInDown animated" data-wow-delay=".5s">recent notice</h3>
 			<div class="news-row">
-				<div class="col-md-6 news-grid wow slideInLeft animated" data-wow-delay=".5s">
+			<c:forEach items="${notice}" var="notice">
+						<div class="col-md-6 news-grid wow slideInLeft animated" data-wow-delay=".5s">
 					<div class="news-grid-info">
-						<a href="notice_single.html">Donec cursus felis a enim egestas</a>
-						<p>Etiam ex lorem cursus vitae placerat suscipit dapibus tortor sed nec augue vitae placerat suscipit dapibus tortor sed nec augue enim rhoncus ultricies eros interdum aliquam eros iaculis id.</p>
+						<a href="/jcw/notice/view?idx=${notice.idx}">${notice.title}</a>
+						<div class="content">
+						${notice.content}
+						</div>
 					</div>
 				</div>
-				<div class="col-md-6 news-grid wow slideInRight animated" data-wow-delay=".5s">
+			</c:forEach>
+				
 
-					<div class="news-grid-info">
-						<a href="notice_single.html">Donec cursus felis a enim egestas</a>
-						<p>Etiam ex lorem cursus vitae placerat suscipit dapibus tortor sed nec augue vitae placerat suscipit dapibus tortor sed nec augue enim rhoncus ultricies eros interdum aliquam eros iaculis id.</p>
-					</div>
-				</div>
-				<div class="col-md-6 news-grid wow slideInRight animated" data-wow-delay=".5s">
-
-					<div class="news-grid-info">
-						<a href="notice_single.html">Donec cursus felis a enim egestas</a>
-						<p>Etiam ex lorem cursus vitae placerat suscipit dapibus tortor sed nec augue vitae placerat suscipit dapibus tortor sed nec augue enim rhoncus ultricies eros interdum aliquam eros iaculis id.</p>
-					</div>
-				</div>
-				<div class="col-md-6 news-grid wow slideInRight animated" data-wow-delay=".5s">
-
-					<div class="news-grid-info">
-						<a href="notice_single.html">Donec cursus felis a enim egestas</a>
-						<p>Etiam ex lorem cursus vitae placerat suscipit dapibus tortor sed nec augue vitae placerat suscipit dapibus tortor sed nec augue enim rhoncus ultricies eros interdum aliquam eros iaculis id.</p>
-					</div>
-				</div>
 				<div class="clearfix"> </div>
 			</div>
 		</div>
@@ -158,20 +163,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<h3 class="title wow fadeInDown animated" data-wow-delay=".5s">best board</h3>
 			<div class="news-row">
+			<c:forEach items="${board}" var="board">
 				<div class="col-md-6 news-grid wow slideInLeft animated" data-wow-delay=".5s">
-					<a href="single.html"><img src="../../../resources/img/img4.jpg" alt=""></a>
+					
 					<div class="news-grid-info">
-						<a href="single.html">Donec cursus felis a enim egestas</a>
-						<p>Etiam ex lorem cursus vitae placerat suscipit dapibus tortor sed nec augue vitae placerat suscipit dapibus tortor sed nec augue enim rhoncus ultricies eros interdum aliquam eros iaculis id.</p>
+						<a href="/jcw/board/view?idx=${board.idx}">${board.title}</a>
+						<div class="content">
+						${board.content}
+							
+						</div>
+						
 					</div>
 				</div>
-				<div class="col-md-6 news-grid wow slideInRight animated" data-wow-delay=".5s">
-					<a href="single.html"><img src="../../../resources/img/img5.jpg" alt=""></a>
-					<div class="news-grid-info">
-						<a href="single.html">Donec cursus felis a enim egestas</a>
-						<p>Etiam ex lorem cursus vitae placerat suscipit dapibus tortor sed nec augue vitae placerat suscipit dapibus tortor sed nec augue enim rhoncus ultricies eros interdum aliquam eros iaculis id.</p>
-					</div>
-				</div>
+			</c:forEach>
 				<div class="clearfix"> </div>
 			</div>
 		</div>
@@ -217,12 +221,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 	<!--//smooth-scrolling-of-move-up-->
 	<!--scrolling js-->
-	<script src="../../../resources/js/jquery.nicescroll.js"></script>
-	<script src="../../../resources/js/scripts.js"></script>
+	<script src="../../resources/js/jquery.nicescroll.js"></script>
+	<script src="../../resources/js/scripts.js"></script>
 	<!--//scrolling js-->
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../resources/js/bootstrap.js"></script>
+    <script src="../../resources/js/bootstrap.js"></script>
 </body>
 </html>

@@ -31,22 +31,7 @@
 	Spring Security의 기본 사용법과 다르게 tbl_member에 권한 컴럼(auth)을
 	넣어서 사용하기에 기본 사용법과 달라진다.
 	-->
-	<select id="read" resultMap="memberMap">
-	SELECT	userid,
-			userpw,
-			username,
-			enabled,
-			regdate,
-			updatedate,
-			auth
-	FROM	tbl_member
-	WHERE	userid = #{userid} 
-	</select>
-	<select id="getCount" resultType="int">
-	SELECT count(*) 
-	FROM tbl_project_member
-	WHERE id=#{userid}
-	</select>
+
 		<select id="read2" resultMap="memberMap2">
 	SELECT	id,
 			password,

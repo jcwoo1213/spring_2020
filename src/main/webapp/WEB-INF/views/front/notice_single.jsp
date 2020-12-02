@@ -21,25 +21,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--mobile apps-->
 <!--Custom Theme files -->
-<link href="../../../resources/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-<link href="../../../resources/css/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="../../resources/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="../../resources/css/style.css" type="text/css" rel="stylesheet" media="all">
 <!-- //Custom Theme files -->
 <!-- js -->
-<script src="../../../resources/js/jquery-1.11.1.min.js"></script>
+<script src="../../resources/js/jquery-1.11.1.min.js"></script>
 <!-- //js -->
 <!--web-fonts-->
 <link href='http://fonts.googleapis.com/css?family=Stint+Ultra+Condensed' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!--animate-->
-<link href="../../../resources/css/animate.css" rel="stylesheet" type="text/css" media="all">
-<script src="../../../resources/js/wow.min.js"></script>
+<link href="../../resources/css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="../../resources/js/wow.min.js"></script>
 	<script>
 		 new WOW().init();
 	</script>
 <!--//end-animate-->
 <!-- start-smooth-scrolling-->
-<script type="text/javascript" src="../../../resources/js/move-top.js"></script>
-<script type="text/javascript" src="../../../resources/js/easing.js"></script>
+<script type="text/javascript" src="../../resources/js/move-top.js"></script>
+<script type="text/javascript" src="../../resources/js/easing.js"></script>
 <script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){
@@ -60,7 +60,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<h1 class="wow zoomIn animated" data-wow-delay=".5s"><a href="index.html">Tasty Food</a></h1>
 				</div>
 				<div class="top-nav">
-					<span class="menu"><img src="../../../resources/img/menu.png" alt=""/></span>
+					<span class="menu"><img src="../../resources/img/menu.png" alt=""/></span>
 					<ul>
 						<li class="wow slideInDown animated" data-wow-delay=".5s"><a class="active" href="/jcw/">Home</a></li>
 						<li class="wow slideInDown" data-wow-delay=".6s"><a href="/jcw/about">About</a></li>
@@ -178,12 +178,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 	<!--//smooth-scrolling-of-move-up-->
 	<!--scrolling js-->
-	<script src="../../../resources/js/jquery.nicescroll.js"></script>
-	<script src="../../../resources/js/scripts.js"></script>
+	<script src="../../resources/js/jquery.nicescroll.js"></script>
+	<script src="../../resources/js/scripts.js"></script>
 	<!--//scrolling js-->
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../resources/js/bootstrap.js"></script>
+    <script src="../../resources/js/bootstrap.js"></script>
 </body>
 </html>

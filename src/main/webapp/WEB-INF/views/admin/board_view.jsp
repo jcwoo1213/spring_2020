@@ -120,10 +120,12 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 								<div class="profile_img">
 									<div class="user-name">
-										<p>Admin Name</p>
-										<span>Administrator</span>
-									</div>
-									
+										<sec:authentication property="principal"  var="pinfo"  />
+											<sec:authorize access="isAuthenticated()" >
+												<p>Admin Name:<c:out value="${pinfo.member.userName }"/></p>
+												<span>login id:<c:out value="${pinfo.username }"/></span>
+											</sec:authorize>
+										</div>		
 									<div class="clearfix"></div>
 								</div>
 							</a>
@@ -152,25 +154,34 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
             
             <div>
             <h3>writer:${board.writer} </h3>
-            		<c:if test="${pinfo.username eq board.writer}" >	
-							<button data-oper='modify'  class="btn btn-default" >Modify</button>
-							
-					</c:if>
-					
-						<c:if test="${pinfo.username eq notice.writer}" >	
+            		
+				<sec:authentication property="principal"  var="pinfo"  />
+				<sec:authorize access="isAuthenticated()" >
 
-						<button data-oper='modify'  class="btn btn-default" >Modify</button>
+					<c:if test="${pinfo.username eq board.writer}" >	
+							<button data-oper='modify'  class="btn btn-default" >Modify</button>
+					</c:if>
+	
+				</sec:authorize>
+						<c:if test="${pinfo.username eq notice.writer}" >	
+						
+						
+						
 							
 					</c:if>
 					<button data-oper='del'  class="btn btn-default" >delete</button>
 					<button data-oper='list'  class="btn btn-default" >list</button>	
 					<form id='operForm'  action="jcw/board/del"  method="post" >
-				<input type='hidden'  id='idx'  name='idx'  value='<c:out value="${board.idx}" />' >
-				<input type="hidden"  name="${_csrf.parameterName}"  value="${_csrf.token}"  /> 
-				<input type='hidden'  name='pageNum'  value='<c:out value="${cri.pageNum}" />' > 
-				<input type='hidden'  name='amount'  value='<c:out value="${cri.amount}" />' >
-				<input type='hidden'  name='writer'  value='<c:out value="${board.writer}" />' >
-				</form>
+						<input type='hidden'  id='idx'  name='idx'  value='<c:out value="${board.idx}" />' >
+						<input type="hidden"  name="${_csrf.parameterName}"  value="${_csrf.token}"  /> 
+						<input type='hidden'  name='pageNum'  value='<c:out value="${cri.pageNum}" />' > 
+						<input type='hidden'  name='amount'  value='<c:out value="${cri.amount}" />' >
+						<input type='hidden'  name='writer'  value='<c:out value="${board.writer}" />' >
+					</form>
+					<form id='listForm'  action="/admin/notice/list"  method="get" >
+						<input type='hidden'  name='pageNum'  value='<c:out value=" ${cri.pageNum}" />' > 
+						<input type='hidden'  name='amount'  value='<c:out value=" ${cri.amount}" />' >
+					</form>		
 
               </div>
           </div>
@@ -229,24 +240,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../../resources/admin/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				body = document.body;
 
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-			}
-		</script>
 		<script type="text/javascript">
 		
 

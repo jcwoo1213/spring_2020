@@ -29,7 +29,6 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @RequestMapping("jcw/member/*")
 @PreAuthorize("permitAll")
-
 @Log4j
 public class MemberController {
 	@PreAuthorize("isAnonymous()")

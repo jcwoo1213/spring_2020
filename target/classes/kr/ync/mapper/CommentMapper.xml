@@ -46,26 +46,5 @@
 	   		WHERE	rn > (#{cri.pageNum} -1) * #{cri.amount}
 		]]>
 	</select>
-	<!--  <select id="getListWithPaging" resultType="kr.ync.domain.ReplyVO">
-		<![CDATA[
-	 		SELECT	idx,
-	 				board_idx,
-	 				content,
-	 				writer,
-	 				regdate
-	 		FROM	(SELECT /*+INDEX_DESC(tbl_reply idx_reply) */ 
-	      					rownum rn,
-	      					idx,
-			 				board_idx,
-			 				content,
-			 				writer,
-			 				regdate
-	    			FROM	tbl_project_comment
-	    			WHERE	board_idx =  #{board_idx}
-	    			AND		idx > 0
-	    			AND		rownum <= #{cri.pageNum} * #{cri.amount}
-	   				)
-	   		WHERE	rn > (#{cri.pageNum} -1) * #{cri.amount}
-		]]>
-	</select>-->
+
 </mapper>

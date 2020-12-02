@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ page import="java.util.*" %>    
 <!--
 Author: W3layouts
@@ -118,8 +119,11 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 								<div class="profile_img">
 									<div class="user-name">
-										<p>Admin Name</p>
-										<span>Administrator</span>
+										<sec:authentication property="principal"  var="pinfo"  />
+											<sec:authorize access="isAuthenticated()" >
+												<p>Admin Name:<c:out value="${pinfo.member.userName }"/></p>
+												<span>login id:<c:out value="${pinfo.username }"/></span>
+											</sec:authorize>
 									</div>
 									
 									<div class="clearfix"></div>
@@ -209,24 +213,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../../resources/admin/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				body = document.body;
 
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-			}
-		</script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
 	<!--scrolling js-->

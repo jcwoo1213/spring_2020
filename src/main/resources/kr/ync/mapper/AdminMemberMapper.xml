@@ -21,7 +21,8 @@
 	Spring Security의 기본 사용법과 다르게 tbl_member에 권한 컴럼(auth)을
 	넣어서 사용하기에 기본 사용법과 달라진다.
 	-->
-		<select id="ListWithPaging" resultMap="memberMap2">
+	
+	<select id="ListWithPaging" resultMap="memberMap2">
 		<![CDATA[
   		SELECT	id,
 				password,
@@ -39,15 +40,18 @@
 		WHERE rn > (#{pageNum} -1) * #{amount}
 		]]>
 	</select>
+	
 	<select id="getCount" resultType="int">
 	SELECT count(*) 
 	FROM tbl_project_member
 	WHERE id=#{userid}
 	</select>
+	
 	<select id="getTotalCount" resultType="int">
 	SELECT count(*) 
 	FROM tbl_project_member
 	</select>
+	
 	<select id="read2" resultMap="memberMap2">
 	SELECT	id,
 			password,
@@ -56,6 +60,7 @@
 	FROM	tbl_project_member
 	WHERE	id = #{userid} 
 	</select>
+	
 	<insert id="create">
 		insert into tbl_project_member (id,password,auth,name)
 		values (#{userid}, #{userpw}, #{auth}, #{userName})
