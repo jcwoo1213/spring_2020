@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -53,16 +57,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<!--header-->
 			<div class="header">
 				<div class="logo">
-					<h1 class="wow zoomIn animated" data-wow-delay=".5s"><a href="index.html">Tasty Food</a></h1>
+					<h1 class="wow zoomIn animated" data-wow-delay=".5s"><a href="/jcw/">Exercise story</a></h1>
 				</div>
 				<div class="top-nav">
-					<span class="menu"><img src="../../resources/img//menu.png" alt=""/></span>
+					<span class="menu"><img src="../../resources/img/menu.png" alt=""/></span>
 					<ul>
-												<li class="wow slideInDown animated" data-wow-delay=".5s"><a class="active" href="/jcw/">Home</a></li>
+						<li class="wow slideInDown animated" data-wow-delay=".5s"><a class="active" href="/jcw/">Home</a></li>
 						<li class="wow slideInDown" data-wow-delay=".6s"><a href="/jcw/about">About</a></li>
-						<li class="wow slideInDown" data-wow-delay=".7s"><a href="/jcw/notice">notice</a></li>
+						<li class="wow slideInDown" data-wow-delay=".7s"><a href="/jcw/notice/list">notice</a></li>
 						<li class="wow slideInDown" data-wow-delay=".8s"><a href="/jcw/board/list">Board</a></li>
-						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/jcw/contact">Contact</a></li>
+						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/jcw/contact/index">Contact</a></li>
 						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/customLogout">logout</a></li>
 					</ul>
 					<!-- script-for-menu -->
@@ -90,7 +94,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<h3 class="title wow fadeInDown animated" data-wow-delay=".5s">About Us</h3>
 			<div class="about-info w3agile-info">
 				<div class="col-md-6 about-left wow fadeInLeft animated" data-wow-delay="1s">
-					<img src="../../resources/img//img3.jpg" alt=""/>
+					<img src="../../resources/img/about.jpg" alt=""/>
 				</div>
 				<div class="col-md-6 about-right wow fadeInRight animated" data-wow-delay="1s">
 					<h4>Blanditiis praesentium deleniti atque corrupti quos corrupti quos dolores et quas molestias excepturi</h4>
@@ -108,7 +112,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="row team-row">
 				<div class="col-md-3 team-grids wow slideInLeft animated" data-wow-delay=".5s">
 					<div class="thumbnail team-thmnl">
-						<img src="../../resources/img//t1.jpg" class="img-responsive" alt="">
+						<img src="../../resources/img/t1.jpg" class="img-responsive" alt="">
 						<div class="caption">
 							<h4>Vaura Tegsner</h4>
 							<p>Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
@@ -125,7 +129,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 				<div class="col-md-3 team-grids wow slideInLeft animated" data-wow-delay=".7s">
 					<div class="thumbnail team-thmnl">
-						<img src="../../resources/img//t2.jpg" class="img-responsive" alt="">
+						<img src="../../resources/img/t2.jpg" class="img-responsive" alt="">
 						<div class="caption">
 							<h4>Jark Kohnson</h4>
 							<p>Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
@@ -142,7 +146,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 				<div class="col-md-3 team-grids agileits wow slideInRight animated" data-wow-delay=".5s">
 					<div class="thumbnail team-thmnl">
-						<img src="../../resources/img//t3.jpg" class="img-responsive" alt="">
+						<img src="../../resources/img/t3.jpg" class="img-responsive" alt="">
 						<div class="caption">
 							<h4>Goes Mehak</h4>
 							<p>Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
@@ -159,7 +163,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 				<div class="col-md-3 team-grids wow slideInRight animated" data-wow-delay=".7s">
 					<div class="thumbnail team-thmnl">
-						<img src="../../resources/img//t4.jpg" class="img-responsive" alt="">
+						<img src="../../resources/img/t4.jpg" class="img-responsive" alt="">
 						<div class="caption">
 							<h4>Jark Kohnson</h4>
 							<p>Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>

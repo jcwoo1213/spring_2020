@@ -72,30 +72,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class=" banner about-banner" >
 		<div class=" container" >
 			<!--header-->
-			<div class=" header" >
-				<div class=" logo" >
-					<h1 class=" wow zoomIn animated"  data-wow-delay=" .5s" ><a href=" index.html" >Tasty Food</a></h1>
+			<div class="header">
+				<div class="logo">
+					<h1 class="wow zoomIn animated" data-wow-delay=".5s"><a href="/jcw/">Exercise story</a></h1>
 				</div>
-				<div class=" top-nav" >
-					<span class=" menu" ><img src=" ../../resources/img/menu.png"  alt=" " /></span>
+				<div class="top-nav">
+					<span class="menu"><img src="../../resources/img/menu.png" alt=""/></span>
 					<ul>
-						<li class=" wow slideInDown animated"  data-wow-delay=" .5s" ><a class=" active"  href=" /jcw/" >Home</a></li>
-						<li class=" wow slideInDown"  data-wow-delay=" .6s" ><a href=" /jcw/about" >About</a></li>
-						<li class=" wow slideInDown"  data-wow-delay=" .7s" ><a href=" /jcw/notice/list" >notice</a></li>
-						<li class=" wow slideInDown"  data-wow-delay=" .8s" ><a href=" /jcw/board/list" >Board</a></li>
-						<li class=" wow slideInDown"  data-wow-delay=" .9s" ><a href=" /jcw/contact" >Contact</a></li>
-						<li class=" wow slideInDown"  data-wow-delay=" .9s" ><a href=" /customLogout" >logout</a></li>
+						<li class="wow slideInDown animated" data-wow-delay=".5s"><a href="/jcw/">Home</a></li>
+						<li class="wow slideInDown" data-wow-delay=".6s"><a href="/jcw/about">About</a></li>
+						<li class="wow slideInDown" data-wow-delay=".7s"><a href="/jcw/notice/list">notice</a></li>
+						<li class="wow slideInDown" data-wow-delay=".8s"><a href="/jcw/board/list">Board</a></li>
+						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/jcw/contact/index">Contact</a></li>
+						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/customLogout">logout</a></li>
 					</ul>
-
+					<!-- script-for-menu -->
 					<script>
-						$(" span.menu" ).click(function(){
-							$(" .top-nav ul" ).slideToggle(" slow"  , function(){
+						$("span.menu").click(function(){
+							$(".top-nav ul").slideToggle("slow" , function(){
 							});
 						});
 					</script>
-
+					<!-- script-for-menu -->
 				</div>
-				<div class=" clearfix" > </div>
+				<div class="clearfix"> </div>
 			</div>
 			<!--//header-->
 			<div class=" bnr-text wow slideInLeft animated"  data-wow-delay=" .9s" >
@@ -344,7 +344,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 							replyPageFooter.html(str);
 
-							$("a" ).on(" click" ,function(e){
+							$(".paginate_button a" ).on(" click" ,function(e){
 								e.preventDefault();
 								showList($(this).attr("href" ));
 							});

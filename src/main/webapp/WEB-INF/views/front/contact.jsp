@@ -11,6 +11,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 <html>
+<style>
+	.box{
+		height:700px;
+	}
+	.layer{
+  position:absolute;
+  left:50%;
+  transform:translate(-50%,-100%);
+	}
+</style>
+
 <head>
 <title>Tasty Food a Hotel Category Flat Bootstrap Responsive Website Template | Contact :: w3layouts</title>
 <!--mobile apps-->
@@ -58,16 +69,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<!--header-->
 			<div class="header">
 				<div class="logo">
-					<h1 class="w3ls wow zoomIn animated" data-wow-delay=".5s"><a href="index.html">Tasty Food</a></h1>
+					<h1 class="wow zoomIn animated" data-wow-delay=".5s"><a href="/jcw/">Exercise story</a></h1>
 				</div>
 				<div class="top-nav">
 					<span class="menu"><img src="../../resources/img/menu.png" alt=""/></span>
 					<ul>
-						<li class="wow slideInDown animated" data-wow-delay=".5s"><a  href="index.html">Home</a></li>
-						<li class="wow slideInDown" data-wow-delay=".6s"><a href="about.html">About</a></li>
-						<li class="wow slideInDown" data-wow-delay=".7s"><a href="notice.html">notice</a></li>
-						<li class="wow slideInDown" data-wow-delay=".8s"><a href="blog.html">Board</a></li>
-						<li class="wow slideInDown" data-wow-delay=".9s"><a class="active" href="contact.html">Contact</a></li>
+						<li class="wow slideInDown animated" data-wow-delay=".5s"><a class="active" href="/jcw/">Home</a></li>
+						<li class="wow slideInDown" data-wow-delay=".6s"><a href="/jcw/about">About</a></li>
+						<li class="wow slideInDown" data-wow-delay=".7s"><a href="/jcw/notice/list">notice</a></li>
+						<li class="wow slideInDown" data-wow-delay=".8s"><a href="/jcw/board/list">Board</a></li>
+						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/jcw/contact/index">Contact</a></li>
+						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/customLogout">logout</a></li>
 					</ul>
 					<!-- script-for-menu -->
 					<script>
@@ -92,8 +104,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<h3 class="title wow fadeInDown animated" data-wow-delay=".5s">Contact</h3>
 			<div class="address-row" id="wrapper">
-				<div class="col-md-6 address-left wow agile fadeInLeft animated" data-wow-delay=".5s">
-					<div class="address-grid">
+				<div class="col-md-6 address-left wow agile fadeInLeft animated " data-wow-delay=".5s">
+					<div class="address-grid box">
 						<h4 class="wow fadeIndown animated" data-wow-delay=".5s">DROP TO MESSAGE</h4>
 						<form method="post" action="/jcw/contact/create">
 							<input class="wow fadeIndown animated" data-wow-delay=".6s" type="text" placeholder="writer" id="writer" name="writer" required="" value="<sec:authentication property="principal.username"/>" readonly>
@@ -105,26 +117,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</form>
 					</div>
 				</div>
-				<div class="col-md-6 address-right wow agile fadeInLeft animated">
-					<div class="address-info wow fadeInRight animated" data-wow-delay=".5s">
+				<div class="col-md-6 address-right wow agile fadeInLeft animated box">
+					<div class="address-info wow fadeInRight animated box" data-wow-delay=".5s">
 						<h4>My Message</h4>
 					
-					<table class="table">
-					<thead>
-						<tr>
-							<th>번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>작성일</th>
-						</tr>
-					</thead>
-					<tbody id="list">
-
-					</tbody>
-				</table>
-				
-				</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>번호</th>
+									<th>제목</th>
+									<th>작성자</th>
+									<th>작성일</th>
+								</tr>
+							</thead>
+							<tbody id="list">
+							</tbody>
+						</table>
 						<div class="pagebar"></div>
+					</div>
+					
 				</div>
 				
 			</div>
@@ -164,7 +175,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		var writer = '<sec:authentication property="principal.username"/>';
 		var page = param.page || 1; // param.page 가 null 이면 1로 설정 
 		
-		$.getJSON("/jcw/contact/test/" + page + ".json", function(data) {
+		$.getJSON("/jcw/contact/listmessage/" + page + ".json", function(data) {
 			if (callback) {
 				//callback(data); // 댓글 목록만 가져오는 경우 
 	            callback(data.replyCnt,data.list); //댓글 숫자와 목록을 가져오는 경우
@@ -211,7 +222,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		if (endNum * 10 < replyCnt) {
 			next = true;
 		}
-		var str = "<ul class='pagination pull-right'>";
+		var str = "<ul class='pagination layer'>";
 
 		if (prev) {
 			str += "<li class='paginate_button '><a  href='"

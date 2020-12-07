@@ -31,4 +31,8 @@ public class MainPageController {
 		model.addAttribute("board", board);
 		return"front/index";
 	}
+	@GetMapping("/about")
+	public String aboutpage() {
+		return "front/about";
+	}
 }

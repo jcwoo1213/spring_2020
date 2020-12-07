@@ -69,7 +69,8 @@
   				content,
   				writer,
   				count,
-  				regdate
+  				regdate,
+  				img
 		FROM	(SELECT /*+INDEX_DESC(tbl_project_board XPKTBL_BOARD) */
 						rownum rn,
 						idx,
@@ -77,7 +78,8 @@
 						content,
 						writer,
 						regdate,
-						count
+						count,
+						img
 				FROM	tbl_project_board
 				WHERE	rownum <= #{pageNum} * #{amount}
 				)

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -11,14 +12,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <style>
 	.content{
-	  	width			: 200px;
-	  	height        : 100px;     /* 너비는 변경될수 있습니다. */
+	  	width: 200px;
+	  	height: 100px;     /* 너비는 변경될수 있습니다. */
 	  	white-space: nowrap; 
 	 	overflow: hidden; 
 	 	text-overflow: ellipsis;
-
-
-
 	  	white-space: normal; 
  		word-wrap: break-word; 
 		display: -webkit-box; 
@@ -74,7 +72,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<!--header-->
 			<div class="header">
 				<div class="logo">
-					<h1 class="wow zoomIn animated" data-wow-delay=".5s"><a href="index.html">Exercise story</a></h1>
+					<h1 class="wow zoomIn animated" data-wow-delay=".5s"><a href="/jcw/">Exercise story</a></h1>
 				</div>
 				<div class="top-nav">
 					<span class="menu"><img src="../../resources/img/menu.png" alt=""/></span>
@@ -129,8 +127,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</script>
 					<!--End-slider-script-->
 				</div>
-				<a href="about.html" class="more more-right">More About</a>
-				<a href="single.html" class="more more-left">Learn More</a>
 			</div>
 		</div>
 	</div>
@@ -164,15 +160,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<h3 class="title wow fadeInDown animated" data-wow-delay=".5s">best board</h3>
 			<div class="news-row">
 			<c:forEach items="${board}" var="board">
+
 				<div class="col-md-6 news-grid wow slideInLeft animated" data-wow-delay=".5s">
 					
+					<c:if test="${board.img != null}">
+						<a><img src="/resources/upload/${board.img}" class="img-responsive zoom-img" id=" thumb_${i}" ></a>
+					</c:if>
+					<c:if test="${board.img == null}">
+						<a><img src="/resources/img/empty-icons.jpg" class="img-responsive zoom-img" id=" thumb_${i}" ></a>
+					</c:if>
 					<div class="news-grid-info">
 						<a href="/jcw/board/view?idx=${board.idx}">${board.title}</a>
 						<div class="content">
-						${board.content}
-							
+							${board.content}	
 						</div>
-						
 					</div>
 				</div>
 			</c:forEach>

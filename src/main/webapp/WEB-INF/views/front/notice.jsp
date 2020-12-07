@@ -11,6 +11,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 <html>
+<style>
+	.layer{
+  position:absolute;
+  left:50%;
+  transform:translate(-50%,-100%);
+	}
+</style>
 <head>
 <title>Tasty Food a Hotel Category Flat Bootstrap Responsive Website Template | Blog :: w3layouts</title>
 <!--mobile apps-->
@@ -58,16 +65,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<!--header-->
 			<div class="header">
 				<div class="logo">
-					<h1 class="wow zoomIn animated" data-wow-delay=".5s"><a href="index.html">Tasty Food</a></h1>
+					<h1 class="wow zoomIn animated" data-wow-delay=".5s"><a href="/jcw/">Exercise story</a></h1>
 				</div>
 				<div class="top-nav">
 					<span class="menu"><img src="../../resources/img/menu.png" alt=""/></span>
 					<ul>
 						<li class="wow slideInDown animated" data-wow-delay=".5s"><a class="active" href="/jcw/">Home</a></li>
 						<li class="wow slideInDown" data-wow-delay=".6s"><a href="/jcw/about">About</a></li>
-						<li class="wow slideInDown" data-wow-delay=".7s"><a href="/jcw/notice">notice</a></li>
+						<li class="wow slideInDown" data-wow-delay=".7s"><a href="/jcw/notice/list">notice</a></li>
 						<li class="wow slideInDown" data-wow-delay=".8s"><a href="/jcw/board/list">Board</a></li>
-						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/jcw/contact">Contact</a></li>
+						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/jcw/contact/index">Contact</a></li>
 						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/customLogout">logout</a></li>
 					</ul>
 					<!-- script-for-menu -->
@@ -91,7 +98,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!--blog-->
 	<div class="blog">
 		<div class="container">
-			<h3 class="title wow slideInDown animated" data-wow-delay=".5s">Our Blog</h3>
+			<h3 class="title wow slideInDown animated" data-wow-delay=".5s">Notice</h3>
 			<table class="table">
 					<thead>
 						<tr>
@@ -120,33 +127,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 		</div>
 	</div>
-		<div class="container">
-			<div class='pull-left'>
-					<ul class="pagination">
-						
-						<c:if test="${pageMaker.prev}">
-							<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">Previous</a></li>
-						</c:if>
+	<div class='layer'>
+		<ul class="pagination">
+			<c:if test="${pageMaker.prev}">
+				<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">Previous</a></li>
+			</c:if>
+			
+			<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+				<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active":""} ">
+					<a href="${num}">${num}</a>
+				</li>
+			</c:forEach>
+			
+			<c:if test="${pageMaker.next}">
+				<li class="paginate_button next"><a href="${pageMaker.endPage +1 }">Next</a></li>
+			</c:if>
 
-						<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
-							<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active":""} ">
-								<a href="${num}">${num}</a>
-							</li>
-						</c:forEach>
-
-						<c:if test="${pageMaker.next}">
-							<li class="paginate_button next"><a href="${pageMaker.endPage +1 }">Next</a></li>
-						</c:if>
-
-					</ul>
-				</div>
-				<!-- 페이징 Form 시작 -->
-				<form id='actionForm' action="list" method='get'>
-					<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
-					<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
-				</form>
-				<!-- 페이징 Form 끝 -->
+		</ul>
 	</div>
+	
+
+	<!-- 페이징 Form 시작 -->
+	<form id='actionForm' action="list" method='get'>
+		<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+	</form>
+	
 	<!--//blog-->
 	<!--footer-->
 	<div class="footer">

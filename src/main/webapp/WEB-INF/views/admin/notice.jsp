@@ -61,7 +61,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <h1><a class="navbar-brand" href="index.html"><span class="fa fa-area-chart"></span> Glance<span class="dashboard_text">Design dashboard</span></a></h1>
+            <h1><a class="navbar-brand" href="/admin/index"><span class="fa fa-area-chart"></span> Gallery<span class="dashboard_text">AdminPage</span></a></h1>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
@@ -79,7 +79,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
               <li class="treeview">
                 <a href="/admin/board/list">
-                <i class="fa fa-table"></i> <span>게시글 관리</span>
+                <i class="fa fa-file-text"></i> <span>게시글 관리</span>
                 </a>
               </li>
               <li class="treeview">
@@ -89,7 +89,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
               </li>
                <li class="treeview">
                 <a href="/customLogout">
-                <i class="fa fa-envelope"></i> <span>logout</span>
+                <i class="fa fa-sign-out"></i> <span>logout</span>
                 </a>
               </li>
 
@@ -167,25 +167,21 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
             </tbody>
           </table>
           <div class="container">
-			<div class='pull-left'>
-					<ul class="pagination">
-						
-						<c:if test="${pageMaker.prev}">
-							<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">Previous</a></li>
-						</c:if>
+			<div class="paging">
+           		<ul class="pageMove">
+           			<c:if test="${pageMaker.prev}">
+						<a class="pageMove" href="${pageMaker.startPage -1}">Previous</a>
+					</c:if>
 
-						<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
-							<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active":""} ">
-								<a href="${num}">${num}</a>
-							</li>
-						</c:forEach>
+					<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+						<a class="pageMove" href="${num}">${num}</a>	
+					</c:forEach>
 
-						<c:if test="${pageMaker.next}">
-							<li class="paginate_button next"><a href="${pageMaker.endPage +1 }">Next</a></li>
-						</c:if>
-
-					</ul>
-				</div>
+					<c:if test="${pageMaker.next}">
+						<a class="pageMove" href="${pageMaker.endPage +1 }">Next</a>
+					</c:if>		
+          		</ul>
+          	</div>
 				<!-- 페이징 Form 시작 -->
 				<form id='actionForm' action="list" method='get'>
 					<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
@@ -227,8 +223,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
 	$(document).ready(function(){
 		var actionForm = $("#actionForm");
-		$(".paginate_button a").on("click", function(e) {
-			
+		$(".pageMove a").on("click", function(e) {
 			 e.preventDefault();
 			 console.log('click');
 			 actionForm.find("input[name='pageNum']").val($(this).attr("href"));

@@ -62,7 +62,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <h1><a class="navbar-brand" href="index.html"><span class="fa fa-area-chart"></span> Glance<span class="dashboard_text">Design dashboard</span></a></h1>
+            <h1><a class="navbar-brand" href="/admin/index"><span class="fa fa-area-chart"></span> Gallery<span class="dashboard_text">AdminPage</span></a></h1>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
@@ -80,7 +80,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
               <li class="treeview">
                 <a href="/admin/board/list">
-                <i class="fa fa-table"></i> <span>게시글 관리</span>
+                <i class="fa fa-file-text"></i> <span>게시글 관리</span>
                 </a>
               </li>
               <li class="treeview">
@@ -90,7 +90,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
               </li>
                <li class="treeview">
                 <a href="/customLogout">
-                <i class="fa fa-envelope"></i> <span>logout</span>
+                <i class="fa fa-sign-out"></i> <span>logout</span>
                 </a>
               </li>
 
@@ -143,47 +143,42 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			<div class="main-page">
 				<h2 class="title1">message</h2>
 				<div class="blank-page widget-shadow scroll" id="style-2 div1">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>번호</th>
-                <th>제목</th>
-                <th>작성일</th>
-                <th>작성자</th>
-
-              </tr>
-            </thead>
-            <tbody>
-              <c:forEach items="${list}" var="message">
-						<tr>
-							<td><c:out value="${message.idx}"/></td>
-							<td><a class='move' href='<c:out value="${message.idx}" />'><c:out value="${message.title}" /></td>
-							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${message.regdate}" /></td>
-							<td><c:out value="${message.writer} "/></td>
-
-						</tr>
-					</c:forEach>
-            </tbody>
-          </table>
+		          	<table class="table">
+			            <thead>
+			              <tr>
+			                <th>번호</th>
+			                <th>제목</th>
+			                <th>작성일</th>
+			                <th>작성자</th>
+			              </tr>
+			            </thead>
+			            <tbody>
+			              <c:forEach items="${list}" var="message">
+								<tr>
+									<td><c:out value="${message.idx}"/></td>
+									<td><a class='move' href='<c:out value="${message.idx}" />'><c:out value="${message.title}" /></td>
+									<td><fmt:formatDate pattern="yyyy-MM-dd" value="${message.regdate}" /></td>
+									<td><c:out value="${message.writer} "/></td>
+								</tr>
+							</c:forEach>
+			            </tbody>
+		          	</table>
           <div class="container">
-					           <div class="paging">
-           <ul class="pageMove">
-           	<c:if test="${pageMaker.prev}">
-							<a class="pageMove" href="${pageMaker.startPage -1}">Previous</a>
-						</c:if>
+			<div class="paging">
+           		<ul class="pageMove">
+           			<c:if test="${pageMaker.prev}">
+						<a class="pageMove" href="${pageMaker.startPage -1}">Previous</a>
+					</c:if>
 
-						<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
-							
-								<a class="pageMove" href="${num}">${num}</a>
-							
-						</c:forEach>
+					<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+						<a class="pageMove" href="${num}">${num}</a>	
+					</c:forEach>
 
-						<c:if test="${pageMaker.next}">
-							<a class="pageMove" href="${pageMaker.endPage +1 }">Next</a>
-						</c:if>
-						
-          	</ul>
-          </div>
+					<c:if test="${pageMaker.next}">
+						<a class="pageMove" href="${pageMaker.endPage +1 }">Next</a>
+					</c:if>		
+          		</ul>
+          	</div>
           <form id='actionForm' action="list" method='get'>
 					<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 					<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
@@ -191,7 +186,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 				<!-- 페이징 Form 시작 -->
 
 				<!-- 페이징 Form 끝 -->
-	</div>
+		</div>
 				</div>
 			</div>
 

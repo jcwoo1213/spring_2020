@@ -61,7 +61,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <h1><a class="navbar-brand" href="index.html"><span class="fa fa-area-chart"></span> Glance<span class="dashboard_text">Design dashboard</span></a></h1>
+            <h1><a class="navbar-brand" href="/admin/index"><span class="fa fa-area-chart"></span> Gallery<span class="dashboard_text">AdminPage</span></a></h1>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
@@ -79,12 +79,12 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
               <li class="treeview">
                 <a href="/admin/board/list">
-                <i class="fa fa-table"></i> <span>게시글 관리</span>
+                <i class="fa fa-file-text"></i> <span>게시글 관리</span>
                 </a>
               </li>
               <li class="treeview">
                 <a href="/admin/message/list">
-                <i class="fa fa-envelope"></i> <span>Message</span>
+                <i class="fa fa-sign-out"></i> <span>Message</span>
                 </a>
               </li>
                <li class="treeview">

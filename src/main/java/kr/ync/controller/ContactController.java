@@ -46,7 +46,7 @@ public class ContactController {
 		model.addAttribute("answer", service.getanswer(idx));
 		return "front/contact_view";
 	}
-	@GetMapping(value = "/test/{page}", produces = { MediaType.APPLICATION_XML_VALUE,
+	@GetMapping(value = "/listmessage/{page}", produces = { MediaType.APPLICATION_XML_VALUE,
 			MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<MessagePageDTO> getList(@PathVariable("page") int page,Model model,Principal principal) {
 		

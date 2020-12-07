@@ -61,7 +61,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <h1><a class="navbar-brand" href="index.html"><span class="fa fa-area-chart"></span> Glance<span class="dashboard_text">Design dashboard</span></a></h1>
+            <h1><a class="navbar-brand" href="/admin/index"><span class="fa fa-area-chart"></span>Gallery<span class="dashboard_text">Admin Page</span></a></h1>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
@@ -79,7 +79,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
               <li class="treeview">
                 <a href="/admin/board/list">
-                <i class="fa fa-table"></i> <span>게시글 관리</span>
+                <i class="fa fa-file-text"></i> <span>게시글 관리</span>
                 </a>
               </li>
               <li class="treeview">
@@ -89,7 +89,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
               </li>
                <li class="treeview">
                 <a href="/customLogout">
-                <i class="fa fa-envelope"></i> <span>logout</span>
+                <i class="fa fa-sign-out"></i> <span>logout</span>
                 </a>
               </li>
 
@@ -102,17 +102,12 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		<!--left-fixed -navigation-->
 
 		<!-- header-starts -->
-<div class="sticky-header header-section ">
-			<div class="header-left">
+	<div class="sticky-header header-section ">
+		<div class="header-left">
 				<!--notification menu end -->
-				<div class="clearfix"> </div>
-			</div>
+			<div class="clearfix"> </div>
+		</div>
 			<div class="header-right">
-
-
-				<!--search-box-->
-
-
 				<div class="profile_details">
 					<ul>
 						<li class="dropdown profile_details_drop">
@@ -144,58 +139,52 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			<div class="main-page">
 				<h2 class="title1">게시글 보기</h2>
 				<div class="blank-page widget-shadow scroll" id="style-2 div1">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>번호</th>
-                <th>제목</th>
-                <th>작성일</th>
-                <th>조회수</th>
-
-              </tr>
-            </thead>
-            <tbody>
-              <c:forEach items="${list}" var="board">
-						<tr>
-							<td><c:out value="${board.idx}"/></td>
-							<td><a class='move' href='<c:out value="${board.idx}" />'><c:out value="${board.title}" /></td>
-							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate}" /></td>
-							<td><c:out value="${board.count} "/></td>
-
-						</tr>
-					</c:forEach>
-            </tbody>
-          </table>
-          <div class="container">
-			<div class='pull-left'>
-					<ul class="pagination">
-						
-						<c:if test="${pageMaker.prev}">
-							<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">Previous</a></li>
-						</c:if>
-
-						<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
-							<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active":""} ">
-								<a href="${num}">${num}</a>
-							</li>
-						</c:forEach>
-
-						<c:if test="${pageMaker.next}">
-							<li class="paginate_button next"><a href="${pageMaker.endPage +1 }">Next</a></li>
-						</c:if>
-
-					</ul>
-				</div>
-				<!-- 페이징 Form 시작 -->
-				<form id='actionForm' action="list" method='get'>
-					<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
-					<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
-				</form>
-				<!-- 페이징 Form 끝 -->
-	</div>
+		          <table class="table">
+		            <thead>
+		              <tr>
+		                <th>번호</th>
+		                <th>제목</th>
+		                <th>작성일</th>
+		                <th>조회수</th>
+		              </tr>
+		            </thead>
+		            <tbody>
+		              <c:forEach items="${list}" var="board">
+								<tr>
+									<td><c:out value="${board.idx}"/></td>
+									<td><a class='move' href='<c:out value="${board.idx}" />'><c:out value="${board.title}" /></td>
+									<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate}" /></td>
+									<td><c:out value="${board.count} "/></td>
+								</tr>
+							</c:forEach>
+		            </tbody>
+		          </table>
+	          		<div class="container">
+						<div class="paging">
+	           				<ul class="pageMove">
+			           			<c:if test="${pageMaker.prev}">
+									<a class="pageMove" href="${pageMaker.startPage -1}"><<</a>
+								</c:if>
+			
+								<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+									<a class="pageMove" href="${num}">${num}</a>	
+								</c:forEach>
+			
+								<c:if test="${pageMaker.next}">
+									<a class="pageMove" href="${pageMaker.endPage +1 }">>></a>
+								</c:if>		
+	          				</ul>
+	          			</div>
+					<!-- 페이징 Form 시작 -->
+						<form id='actionForm' action="list" method='get'>
+							<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+							<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+						</form>
+					<!-- 페이징 Form 끝 -->
+					</div>
 				</div>
 			</div>
-       <h1><a href="create"><span class="label label-default col-md-12">write</span></a></h1>
+       		<h1><a href="create"><span class="label label-default col-md-12">write</span></a></h1>
 		</div>
 		<!--footer-->
 		<div class="footer">
@@ -227,8 +216,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
 	$(document).ready(function(){
 		var actionForm = $("#actionForm");
-		$(".paginate_button a").on("click", function(e) {
-			
+		$(".pageMove a").on("click", function(e) {
 			 e.preventDefault();
 			 console.log('click');
 			 actionForm.find("input[name='pageNum']").val($(this).attr("href"));

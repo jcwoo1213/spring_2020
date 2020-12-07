@@ -61,6 +61,7 @@ public class AdminBoardController {
 		service.create(board);
 		return "redirect:/admin/board/list";
 	}
+	
 	@GetMapping("/list")
 	public String list(Criteria cri, Model model) {
 
@@ -77,16 +78,7 @@ public class AdminBoardController {
 		return "/admin/board";
 	}
 	
-//	@GetMapping("/list")
-//	public String list(Model model) {
-//
-//
-//		List<BoardVO2> list=service.List();
-//		list.forEach(board -> log.info(board));
-//		System.out.println(list);
-//		model.addAttribute("list", list);
-//		return "/front/board";
-//	}
+
 	@GetMapping("view")
 	public String view(@RequestParam("idx") int idx,Model model,Criteria cri) {
 		
@@ -121,6 +113,7 @@ public class AdminBoardController {
 
 		return"admin/board_modify";
 	}
+	
 	@PreAuthorize("principal.username == #board.writer")
 	@PostMapping("modify")
 	public String modify(MultipartFile[] uploadFile, BoardVO2 board,RedirectAttributes rttr,Criteria cri) {

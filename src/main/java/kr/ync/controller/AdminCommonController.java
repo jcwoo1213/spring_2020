@@ -13,6 +13,8 @@ import lombok.extern.log4j.Log4j;
 public class AdminCommonController {
 	
 
+	
+	
 	@GetMapping("/customLogin")
 	public void loginInput(String error, String logout, Model model) {
 
@@ -27,18 +29,5 @@ public class AdminCommonController {
 			model.addAttribute("logout", "Logout!!");
 		}
 	}
-	@GetMapping("/a")
-	public void a(String error, String logout, Model model) {
 
-		log.info("error: " + error);
-		log.info("logout: " + logout);
-
-		if (error != null) {
-			model.addAttribute("error", "Login Error Check Your Account");
-		}
-
-		if (logout != null) {
-			model.addAttribute("logout", "Logout!!");
-		}
-	} 
 }

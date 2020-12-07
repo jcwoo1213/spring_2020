@@ -3,6 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
+<style>
+	.layer{
+  position:absolute;
+  left:50%;
+  transform:translate(-50%,-100%);
+	}
+</style>
 <head>
 <title>Tasty Food a Hotel Category Flat Bootstrap Responsive Website Template | Blog :: w3layouts</title>
 <!--mobile apps-->
@@ -51,26 +58,26 @@
 			<!--header-->
 			<div class="header">
 				<div class="logo">
-					<h1 class="wow zoomIn animated" data-wow-delay=".5s"><a href="index.html">Tasty Food</a></h1>
+					<h1 class="wow zoomIn animated" data-wow-delay=".5s"><a href="/jcw/">Exercise story</a></h1>
 				</div>
 				<div class="top-nav">
 					<span class="menu"><img src="../../resources/img/menu.png" alt=""/></span>
 					<ul>
 						<li class="wow slideInDown animated" data-wow-delay=".5s"><a class="active" href="/jcw/">Home</a></li>
 						<li class="wow slideInDown" data-wow-delay=".6s"><a href="/jcw/about">About</a></li>
-						<li class="wow slideInDown" data-wow-delay=".7s"><a href="/jcw/notice">notice</a></li>
+						<li class="wow slideInDown" data-wow-delay=".7s"><a href="/jcw/notice/list">notice</a></li>
 						<li class="wow slideInDown" data-wow-delay=".8s"><a href="/jcw/board/list">Board</a></li>
-						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/jcw/contact">Contact</a></li>
+						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/jcw/contact/index">Contact</a></li>
 						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/customLogout">logout</a></li>
 					</ul>
-
+					<!-- script-for-menu -->
 					<script>
 						$("span.menu").click(function(){
 							$(".top-nav ul").slideToggle("slow" , function(){
 							});
 						});
 					</script>
-
+					<!-- script-for-menu -->
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -85,61 +92,59 @@
 	<div class="blog">
 		<div class="container">
 			<h3 class="title wow slideInDown animated" data-wow-delay=".5s">Our Blog</h3>
-			<table class="table">
-					<thead>
-						<tr>
-							<th>번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>조회수</th>
-							<th>작성일</th>
-						</tr>
-					</thead>
-					<tbody>
-					<c:forEach items="${list}" var="board">
-						<tr>
-							<td><c:out value="${board.idx}" /></td>
-							<td><a class='move' href='<c:out value="${board.idx}" />'><c:out value="${board.title}" />
-							</td>
-							<td><c:out value="${board.writer}" /></td>
-							<td><c:out value="${board.count} "/></td>
-							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate}" /></td>
 
-						</tr>
-					</c:forEach>
-					</tbody>
-				</table>
+				<c:forEach items="${list}" var="board">
+					
+					<div class="blog wow slideInRight animated" data-wow-delay=".5s">
+						<div class="blog-img">
+							<c:if test="${board.img != null}">
+								<a><img src="/resources/upload/${board.img}" class="img-responsive zoom-img" id=" thumb_${i}" ></a>
+							</c:if>
+							<c:if test="${board.img == null}">
+								<a><img src="/resources/img/empty-icons.jpg" class="img-responsive zoom-img" id=" thumb_${i}" ></a>
+							</c:if>
+						</div>
+						<div class="blog-text">
+							<h2 class="wow fadeInDown animated" data-wow-delay=".5s"><a class='move' href="<c:out value="${board.idx}" />"><c:out value="${board.title}" /></a></h2>
+							<p class="wow fadeInDown animated" data-wow-delay=".5s">
+								writer:<c:out value="${board.writer}" /><br/>
+								작성:<fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate}" /><br/>
+								조회수:<c:out value="${board.count} "/>
+							</p>
+							
+						</div>
+					</div>
 
+				</c:forEach>
 
 		</div>
 	</div>
-	<div class="container">
-			<div class='pull-left'>
-					<ul class="pagination">
-						
-						<c:if test="${pageMaker.prev}">
-							<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">Previous</a></li>
-						</c:if>
 
-						<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
-							<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active":""} ">
-								<a href="${num}">${num}</a>
-							</li>
-						</c:forEach>
+	<div class='layer'>
+		<ul class="pagination">
+			<c:if test="${pageMaker.prev}">
+				<li class="paginate_button previous"><a href="${pageMaker.startPage -1}">Previous</a></li>
+			</c:if>
+			
+			<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+				<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active":""} ">
+					<a href="${num}">${num}</a>
+				</li>
+			</c:forEach>
+			
+			<c:if test="${pageMaker.next}">
+				<li class="paginate_button next"><a href="${pageMaker.endPage +1 }">Next</a></li>
+			</c:if>
 
-						<c:if test="${pageMaker.next}">
-							<li class="paginate_button next"><a href="${pageMaker.endPage +1 }">Next</a></li>
-						</c:if>
-
-					</ul>
-				</div>
-				<!-- 페이징 Form 시작 -->
-				<form id='actionForm' action="list" method='get'>
-					<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
-					<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
-				</form>
-				<!-- 페이징 Form 끝 -->
+		</ul>
 	</div>
+				<!-- 페이징 Form 시작 -->
+	<form id='actionForm' action="list" method='get'>
+		<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+	</form>
+				<!-- 페이징 Form 끝 -->
+	
 	<div class="container">
 	<h1><a href="create"><span class="label label-default col-md-12">write</span></a></h1>
 	</div>

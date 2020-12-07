@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.ync.domain.BoardCriteria;
 import kr.ync.domain.BoardVO;
 import kr.ync.domain.BoardVO2;
 import kr.ync.domain.Criteria;
@@ -57,8 +58,7 @@ public class BoardController2 {
 		return "redirect:/jcw/board/list";
 	}
 	@GetMapping("/list")
-	public String list(Criteria cri, Model model) {
-
+	public String list(BoardCriteria cri, Model model) {
 		log.info("list: " + cri);
 		System.out.println(cri);
 		
