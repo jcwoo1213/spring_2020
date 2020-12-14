@@ -23,18 +23,6 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardMapper mapper;
 	
-
-
-
-
-//	@Override
-//	public List<BoardVO> getListWithPaging(Criteria cri) {
-//
-//		log.info("get List with criteria: " + cri);
-//
-//		return mapper.getListWithPaging(cri);
-//	}
-
 	@Override
 	public int getTotal(Criteria cri) {
 
@@ -50,8 +38,6 @@ public class BoardServiceImpl implements BoardService {
 		mapper.create(vo);
 	}
 
-
-	
 	@Override
 	public BoardVO2 view(int idx) {
 		// TODO Auto-generated method stub

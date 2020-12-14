@@ -67,7 +67,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 <body>
 	<!--banner-->
-	<div class="banner">
+	<div class="mainbanner">
 		<div class="container">
 			<!--header-->
 			<div class="header">
@@ -100,16 +100,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="flexslider">
 					<ul class="slides">
 						<li>
-							<h2 class="bnr-title">Traditional baking of food</h2>
-							<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecat officia deserunt mollitia laborum et dolorum fuga.</p>
+							<h2 class="bnr-title">Mauris luctus diam at condimentum hendrerit.</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta congue tortor vel consectetur. Fusce gravida viverra dolor, sit amet convallis turpis vehicula sed. Donec in viverra risus, ac tempor enim.</p>
 						</li>
 						<li>
-							<h3 class="bnr-title">We have a lot of foodstuffs</h3>
-							<p>Vero eos at et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecat officia deserunt mollitia laborum et dolorum fuga.</p>
+							<h3 class="bnr-title">Cras consectetur justo a gravida auctor.</h3>
+							<p>Etiam aliquet ac diam id condimentum. Vivamus efficitur, nibh vel sodales tristique, felis elit blandit risus, in volutpat turpis purus tristique lorem. Aliquam dapibus quam non lectus aliquam egestas. Etiam eu velit sagittis, convallis metus eu, consequat erat. Nulla justo libero, ultrices rhoncus vulputate hendrerit, bibendum at risus.</p>
 						</li>
 						<li>
-							<h3 class="bnr-title">Delicious food recipes & Soups</h3>
-							<p>Dignissimos at vero eos et accusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecat officia deserunt mollitia laborum et dolorum fuga.</p>
+							<h3 class="bnr-title">Vivamus dictum urna et urna sagittis tincidunt.</h3>
+							<p>Curabitur quis nisl felis. Morbi lobortis aliquet dui ut porta. Fusce cursus luctus eros, id mattis felis ultricies eu. Quisque euismod sit amet lectus id viverra. Aliquam tellus lectus, cursus in mi vitae, aliquam eleifend lacus. In hac habitasse platea dictumst. </p>
 						</li>
 					</ul>
 					<div class="clearfix"></div>
@@ -164,10 +164,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="col-md-6 news-grid wow slideInLeft animated" data-wow-delay=".5s">
 					
 					<c:if test="${board.img != null}">
-						<a><img src="/resources/upload/${board.img}" class="img-responsive zoom-img" id=" thumb_${i}" ></a>
+						<a><img src="/resources/upload/${board.img}" class="img-responsive-thumb zoom-img" id=" thumb_${i}" ></a>
 					</c:if>
 					<c:if test="${board.img == null}">
-						<a><img src="/resources/img/empty-icons.jpg" class="img-responsive zoom-img" id=" thumb_${i}" ></a>
+						<a><img src="/resources/img/empty-icons.jpg" class="img-responsive-thumb zoom-img" id=" thumb_${i}" ></a>
 					</c:if>
 					<div class="news-grid-info">
 						<a href="/jcw/board/view?idx=${board.idx}">${board.title}</a>
@@ -176,7 +176,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</div>
 					</div>
 				</div>
+				
 			</c:forEach>
+			
 				<div class="clearfix"> </div>
 			</div>
 		</div>
@@ -189,9 +191,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="col-md-12 footer-grids footer-address">
 					<h3 class="wow fadeInDown animated" data-wow-delay=".5s">Contact Us:</h3>
 					<ul>
-						<li class="wow slideInLeft animated" data-wow-delay=".5s"><i class="glyphicon glyphicon-send"></i> 123 San Sebastian <span> New York City USA. </span></li>
+						<li class="wow slideInLeft animated" data-wow-delay=".5s"><i class="glyphicon glyphicon-send"></i> 170 Hyeonchung-ro Nam-gu <span> Daegu ,Korea </span></li>
 						<li class="wow slideInLeft animated" data-wow-delay=".5s"><i class="glyphicon glyphicon-phone"></i> +11 222 3333 <span> +00 1111 222 </span></li>
-						<li class="wow slideInLeft animated" data-wow-delay=".5s"><i class="glyphicon glyphicon-envelope"></i> <a href="mailto:example@mail.com"> mail@example.com</a></li>
+						<li class="wow slideInLeft animated" data-wow-delay=".5s"><i class="glyphicon glyphicon-envelope"></i> jcwoo1213@naver.com</li>
 					</ul>
 				</div>
 

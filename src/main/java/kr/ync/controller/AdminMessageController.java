@@ -30,6 +30,7 @@ public class AdminMessageController {
 		model.addAttribute("pageMaker", new PageDTO(cri, service.total()));
 		return "admin/message";
 	}
+	
 	@PostMapping("create")
 	public String create(AnswerVO answer,RedirectAttributes rttr,Criteria cri) {
 		int result=service.input_answer(answer);
@@ -40,6 +41,7 @@ public class AdminMessageController {
 		}
 		return "redirect:/admin/message/view?"+cri.getListLink()+"&idx="+answer.getMessage_idx();
 	}
+	
 	@GetMapping("view")
 	public String view(Criteria cri,@RequestParam("idx")int idx,Model model) {
 		model.addAttribute("message", service.get(idx));

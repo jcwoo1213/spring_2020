@@ -82,7 +82,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<li class="wow slideInDown animated" data-wow-delay=".5s"><a href="/jcw/">Home</a></li>
 						<li class="wow slideInDown" data-wow-delay=".6s"><a href="/jcw/about">About</a></li>
 						<li class="wow slideInDown" data-wow-delay=".7s"><a href="/jcw/notice/list">notice</a></li>
-						<li class="wow slideInDown" data-wow-delay=".8s"><a href="/jcw/board/list">Board</a></li>
+						<li class="wow slideInDown" data-wow-delay=".8s"><a class="active" href="/jcw/board/list">Board</a></li>
 						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/jcw/contact/index">Contact</a></li>
 						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/customLogout">logout</a></li>
 					</ul>
@@ -115,7 +115,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						
 							<div class=" form-group" >
 							<c:if test="${board.img != null}">
-								<img src="/resources/upload/${board.img}"  id=" thumb_${i}" >
+								<img src="/resources/upload/${board.img}">
 							</c:if>
 								
 							</div>
@@ -170,7 +170,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!--comments-->
 		<div class="container" >
 			<div class="comment-grid-top" >
-				<h3 class="wow fadeInDown animated"  data-wow-delay=" .5s" >Responses</h3>
+				<h3 class="wow fadeInDown animated commenttitle"  data-wow-delay=" .5s" ></h3>
 				<div class="chat" ></div>
 				<div class="panel-footer" ></div>
 			</div>
@@ -230,19 +230,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container" >
 			<div class="footer-info w3agile" >
 				<div class=" col-md-12 footer-grids footer-address" >
-					<h3 class=" wow fadeInDown animated"  data-wow-delay=" .5s" >Contact
-						Us:</h3>
+					<h3 class=" wow fadeInDown animated"  data-wow-delay=" .5s" >Contact Us:</h3>
 					<ul>
-						<li class=" wow slideInLeft animated"  data-wow-delay=" .5s" >
-						<i
-							class=" glyphicon glyphicon-send" ></i> 123 San Sebastian <span>
-								New York City USA. </span></li>
-						<li class=" wow slideInLeft animated"  data-wow-delay=" .5s" ><i
-							class=" glyphicon glyphicon-phone" ></i> +11 222 3333 <span>
-								+00 1111 222 </span></li>
-						<li class=" wow slideInLeft animated"  data-wow-delay=" .5s" ><i
-							class=" glyphicon glyphicon-envelope" ></i> <a
-							href=" mailto:example@mail.com" > mail@example.com</a></li>
+						<li class="wow slideInLeft animated" data-wow-delay=".5s"><i class="glyphicon glyphicon-send"></i> 170 Hyeonchung-ro Nam-gu <span> Daegu ,Korea </span></li>
+						<li class="wow slideInLeft animated" data-wow-delay=".5s"><i class="glyphicon glyphicon-phone"></i> +11 222 3333 <span> +00 1111 222 </span></li>
+						<li class="wow slideInLeft animated" data-wow-delay=".5s"><i class="glyphicon glyphicon-envelope"></i> jcwoo1213@naver.com</li>
 					</ul>
 				</div>
 
@@ -275,6 +267,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 	$(document).ready(
 					function() {
+						var commenttitle=$(".commenttitle");
 						var operForm = $("#operForm" );
 						var replyUL = $(".chat" );
 						var commentCount = 0;
@@ -341,7 +334,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							}
 							str += "</ul></div>" ;
 
-
+							
 							replyPageFooter.html(str);
 
 							$(".paginate_button a" ).on(" click" ,function(e){
@@ -360,6 +353,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												page : page || 1
 											},function(replyCnt, list) {
 												commentCount = replyCnt;
+												commenttitle.html(commentCount+"\tResponed")
 												console.log(list);
 												if (page == -1) {
 													pageNum = Math
@@ -367,7 +361,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 													showList(pageNum);
 													return;
 												}
-
+												
 												var str = "" ;
 
 												if (list == null|| list.length == 0) {

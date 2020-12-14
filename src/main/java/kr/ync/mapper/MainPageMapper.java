@@ -7,5 +7,7 @@ import kr.ync.domain.NoticeVO;
 
 public interface MainPageMapper {
 	public List<NoticeVO> getNotice();
+	
 	public List<BoardVO2> getBoard();
+	
 }

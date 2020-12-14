@@ -14,6 +14,7 @@ public class MainPageServiceImpl implements MainPageService {
 
 	@Autowired
 	MainPageMapper mapper;
+	
 	@Override
 	public List<NoticeVO> getNotice() {
 		// TODO Auto-generated method stub

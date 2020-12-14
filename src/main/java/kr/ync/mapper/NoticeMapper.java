@@ -17,6 +17,7 @@ public interface NoticeMapper {
 
 
 	public void updateCount(int idx);
+	
 	public int getTotalCount(Criteria cri);
 	
 	public void create(NoticeVO notice);
@@ -24,5 +25,6 @@ public interface NoticeMapper {
 	public List<NoticeVO> List();
 	
 	public List<NoticeVO> ListWithPaging(Criteria cri);
+	
 	public int getCount(int idx);
 }

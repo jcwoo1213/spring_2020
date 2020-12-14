@@ -24,18 +24,6 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 	private AdminBoardMapper mapper;
 	
 
-
-
-
-
-//	@Override
-//	public List<BoardVO> getListWithPaging(Criteria cri) {
-//
-//		log.info("get List with criteria: " + cri);
-//
-//		return mapper.getListWithPaging(cri);
-//	}
-
 	@Override
 	public int getTotal(Criteria cri) {
 

@@ -8,6 +8,7 @@ body{
 	margin:0;
 	font-family: 'Roboto', sans-serif;
 	background: #f0f0f0;
+
 }
 body a{
 	transition: 0.5s all;
@@ -80,8 +81,13 @@ span.menu {
 }
 /*--//header--*/
 /*--banner--*/
+.mainbanner {
+    background: url(../img/main.jpg) no-repeat 0px -64px;
+    background-size: cover;
+    min-height: 799px;
+}
 .banner {
-    background: url(../img/banner.jpg) no-repeat 0px -64px;
+    background: url(../img/footer.jpg) no-repeat 0px -64px;
     background-size: cover;
     min-height: 799px;
 }
@@ -135,6 +141,13 @@ a.more.more-right:hover {
 .welcome,.reservation,.about,.news,.codes,.blog,.single,.gallery,.contact{
 	padding:7em 0;
 }
+h3.contacttitle {
+    font-size: 4em;
+    text-align: center;
+    color: #fff;
+	margin-bottom: 1.2em;
+}
+
 h3.title {
     font-size: 4em;
     text-align: center;
@@ -1134,7 +1147,7 @@ section#tables  p {
 }
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
   font-size: 0.9em;
-  color: #555;
+
   border-top: none !important;
 }
 .tab-content > .active {
@@ -1283,16 +1296,16 @@ h2.typoh2{
 /*--//Short-codes--*/
 /*--contact--*/
 .address {
-    background: url(../img/bg.jpg)no-repeat;
+    background: url(../img/contact.jpg)no-repeat;
     background-size: cover;
     padding: 7em 0;
 }
 .address-grid {
-    background-color: rgba(232, 128, 16, 0.78);
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 4em;
 }
 .address-info {
-    background-color: rgba(232, 128, 16, 0.78);
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 3em 4em;
 }
 .address-info.address-mdl {
@@ -1352,8 +1365,8 @@ h2.typoh2{
     font-size: 1em;
     margin: 1em 0 0 0;
     -webkit-appearance: none;
-    background: #800000;
-	border: solid 1px #800000;
+    background: rgba(0, 0, 0, .5);
+	border: solid 1px #ffffff;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -1392,8 +1405,8 @@ h2.typoh2{
     font-size: 1em;
     margin: 1em 0 0 0;
     -webkit-appearance: none;
-    background: #800000;
-	border: solid 1px #800000;
+    background: rgba(0, 0, 0, .5);
+	border: solid 1px #ffffff;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;

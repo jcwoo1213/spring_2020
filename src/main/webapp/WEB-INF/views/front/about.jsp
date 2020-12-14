@@ -10,6 +10,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 <html>
+<style>
+.img{
+	display: block;
+    max-width: 50%;
+    height: auto;
+    max-height: 300px;
+}
+</style>
 <head>
 <title>Tasty Food a Hotel Category Flat Bootstrap Responsive Website Template | About :: w3layouts</title>
 <!--mobile apps-->
@@ -62,8 +70,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="top-nav">
 					<span class="menu"><img src="../../resources/img/menu.png" alt=""/></span>
 					<ul>
-						<li class="wow slideInDown animated" data-wow-delay=".5s"><a class="active" href="/jcw/">Home</a></li>
-						<li class="wow slideInDown" data-wow-delay=".6s"><a href="/jcw/about">About</a></li>
+						<li class="wow slideInDown animated" data-wow-delay=".5s"><a href="/jcw/">Home</a></li>
+						<li class="wow slideInDown" data-wow-delay=".6s"><a class="active" href="/jcw/about">About</a></li>
 						<li class="wow slideInDown" data-wow-delay=".7s"><a href="/jcw/notice/list">notice</a></li>
 						<li class="wow slideInDown" data-wow-delay=".8s"><a href="/jcw/board/list">Board</a></li>
 						<li class="wow slideInDown" data-wow-delay=".9s"><a href="/jcw/contact/index">Contact</a></li>
@@ -94,97 +102,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<h3 class="title wow fadeInDown animated" data-wow-delay=".5s">About Us</h3>
 			<div class="about-info w3agile-info">
 				<div class="col-md-6 about-left wow fadeInLeft animated" data-wow-delay="1s">
-					<img src="../../resources/img/about.jpg" alt=""/>
+					<img src="../../resources/img/about.jpg" width="100px" alt="" class="img"/>
 				</div>
 				<div class="col-md-6 about-right wow fadeInRight animated" data-wow-delay="1s">
-					<h4>Blanditiis praesentium deleniti atque corrupti quos corrupti quos dolores et quas molestias excepturi</h4>
-					<p>Dignissimos at vero eos et accusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti deserunt mollitia laborum et dolorum fuga. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecat </p>
+					<h4>자기소개</h4>
+					<ul>
+						<li>이름:정찬우</li>
+						<li>소속:영남이공대 컴퓨터 정보과</li>
+						<li>2021년 2월 졸업예정</li>
+						
+					</ul>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 		</div>
 	</div>
 	<!--//about-info-->
-	<!--team-->
-	<div class="team">
-		<div class="container">
-			<h3 class="title wow fadeInDown animated" data-wow-delay=".5s">Our Team</h3>
-			<div class="row team-row">
-				<div class="col-md-3 team-grids wow slideInLeft animated" data-wow-delay=".5s">
-					<div class="thumbnail team-thmnl">
-						<img src="../../resources/img/t1.jpg" class="img-responsive" alt="">
-						<div class="caption">
-							<h4>Vaura Tegsner</h4>
-							<p>Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
-						</div>
-						<div class="social-icons team-icons">
-							<ul>
-								<li><a href="#"> </a></li>
-								<li><a href="#" class="fb"> </a></li>
-								<li><a href="#" class="in"> </a></li>
-								<li><a href="#" class="dott"> </a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 team-grids wow slideInLeft animated" data-wow-delay=".7s">
-					<div class="thumbnail team-thmnl">
-						<img src="../../resources/img/t2.jpg" class="img-responsive" alt="">
-						<div class="caption">
-							<h4>Jark Kohnson</h4>
-							<p>Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
-						</div>
-						<div class="social-icons team-icons">
-							<ul>
-								<li><a href="#"> </a></li>
-								<li><a href="#" class="fb"> </a></li>
-								<li><a href="#" class="in"> </a></li>
-								<li><a href="#" class="dott"> </a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 team-grids agileits wow slideInRight animated" data-wow-delay=".5s">
-					<div class="thumbnail team-thmnl">
-						<img src="../../resources/img/t3.jpg" class="img-responsive" alt="">
-						<div class="caption">
-							<h4>Goes Mehak</h4>
-							<p>Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
-						</div>
-						<div class="social-icons team-icons">
-							<ul>
-								<li><a href="#"> </a></li>
-								<li><a href="#" class="fb"> </a></li>
-								<li><a href="#" class="in"> </a></li>
-								<li><a href="#" class="dott"> </a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 team-grids wow slideInRight animated" data-wow-delay=".7s">
-					<div class="thumbnail team-thmnl">
-						<img src="../../resources/img/t4.jpg" class="img-responsive" alt="">
-						<div class="caption">
-							<h4>Jark Kohnson</h4>
-							<p>Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
-						</div>
-						<div class="social-icons team-icons">
-							<ul>
-								<li><a href="#"> </a></li>
-								<li><a href="#" class="fb"> </a></li>
-								<li><a href="#" class="in"> </a></li>
-								<li><a href="#" class="dott"> </a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-	<!--//team-->
-
-
 	<!--footer-->
 	<div class="footer">
 		<div class="container">
@@ -192,9 +125,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="col-md-12 footer-grids footer-address">
 					<h3 class="wow fadeInDown animated" data-wow-delay=".5s">Contact Us:</h3>
 					<ul>
-						<li class="wow slideInLeft animated" data-wow-delay=".5s"><i class="glyphicon glyphicon-send"></i> 123 San Sebastian <span> New York City USA. </span></li>
+						<li class="wow slideInLeft animated" data-wow-delay=".5s"><i class="glyphicon glyphicon-send"></i> 170 Hyeonchung-ro Nam-gu <span> Daegu ,Korea </span></li>
 						<li class="wow slideInLeft animated" data-wow-delay=".5s"><i class="glyphicon glyphicon-phone"></i> +11 222 3333 <span> +00 1111 222 </span></li>
-						<li class="wow slideInLeft animated" data-wow-delay=".5s"><i class="glyphicon glyphicon-envelope"></i> <a href="mailto:example@mail.com"> mail@example.com</a></li>
+						<li class="wow slideInLeft animated" data-wow-delay=".5s"><i class="glyphicon glyphicon-envelope"></i> jcwoo1213@naver.com</li>
 					</ul>
 				</div>
 

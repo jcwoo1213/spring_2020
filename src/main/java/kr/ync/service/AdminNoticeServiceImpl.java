@@ -18,6 +18,7 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 
 	@Autowired
 	AdminNoticeMapper mapper;
+	
 	@Override
 	public int del(int idx) {
 		// TODO Auto-generated method stub

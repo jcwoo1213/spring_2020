@@ -37,6 +37,7 @@ public class AdminNoticeController {
 		
 		return "admin/notice";
 	}
+	
 	@GetMapping("view")
 	public String view(Criteria cri,@RequestParam("idx") int idx,Model model) {
 		log.info("notice_view"+idx);
@@ -45,6 +46,7 @@ public class AdminNoticeController {
 		model.addAttribute("cri", cri);
 		return "admin/notice_view";
 	}
+	
 	@PostMapping("modify_form")
 	public String modfiy_form(Criteria cri,@RequestParam("idx") int idx,Model model) {
 		System.out.println("idx");
@@ -52,6 +54,7 @@ public class AdminNoticeController {
 		model.addAttribute("notice", service.view(idx));
 		return "admin/notice_modify";
 	}
+	
 	@PreAuthorize("principal.username == #notice.writer")
 	@PostMapping("modify")
 	public String modify(NoticeVO notice,RedirectAttributes rttr,Criteria cri) {
@@ -59,6 +62,7 @@ public class AdminNoticeController {
 		rttr.addFlashAttribute("modify_result", service.modify(notice));
 		return "redirect:/admin/notice/view"+cri.getListLink()+"&idx="+notice.getIdx();
 	}
+	
 	@PreAuthorize("principal.username == #notice.writer")
 	@PostMapping("del")
 	public String delete(NoticeVO notice,RedirectAttributes rttr,Criteria cri) {
@@ -66,10 +70,12 @@ public class AdminNoticeController {
 		rttr.addFlashAttribute("modify_result", service.del(notice.getIdx()));
 		return "redirect:/admin/notice/list"+cri.getListLink();
 	}
+	
 	@GetMapping("create")
 	public String create() {
 		return "admin/notice_input";
 	}
+	
 	@PostMapping("create")
 	public String create(NoticeVO notice) {
 		service.create(notice);

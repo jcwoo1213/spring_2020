@@ -2,6 +2,7 @@ package kr.ync.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,9 @@ import lombok.extern.log4j.Log4j;
 public class AdminMemberController {
 	
 	@Autowired
+	PasswordEncoder pwencoder;
+	
+	@Autowired
 	AdminMemberService service;
 	
 	@GetMapping("list")
@@ -34,6 +38,7 @@ public class AdminMemberController {
 		
 		return "admin/member_manage";
 	}
+	
 	@PostMapping("del")
 	public String del(@RequestParam("userid") String id,RedirectAttributes rttr,Criteria cri) {
 		
@@ -48,13 +53,16 @@ public class AdminMemberController {
 		
 		return "redirect:/admin/member/list"+cri.getListLink();
 	}
+	
 	@GetMapping("create")
 	public String create() {
 		
 		return"admin/member_create";
 	}
+	
 	@PostMapping("create")
 	public String create(MemberVO2 member,RedirectAttributes rttr) {
+		member.setUserpw(pwencoder.encode(member.getUserpw()));
 		int result=service.create(member);
 		
 		if(result>0) {

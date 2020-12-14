@@ -35,14 +35,5 @@ public class BoardCriteria extends Criteria{
 	}
 
 
-	
-	public String getListLink() {
-		
-		UriComponentsBuilder builder = UriComponentsBuilder.fromPath("")
-				.queryParam("pageNum", this.getPageNum())
-				.queryParam("amount", this.getAmount());
 
-		
-		return builder.toUriString();
-	}
 }

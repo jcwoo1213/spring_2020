@@ -10,8 +10,11 @@ public interface AdminNoticeService {
 	public int del(int idx);
 	
 	public int modify(NoticeVO notice);
+	
 	public NoticeVO view(int idx);
+	
 	public void updateCount(int idx);
+	
 	public List<NoticeVO>ListWithPaging(Criteria cri);
 
 	//추가

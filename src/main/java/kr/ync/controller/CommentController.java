@@ -42,6 +42,7 @@ public class CommentController {
 		service.create(comment);
 		return "redirect:/jcw/board/view"+cri.getListLink()+"&idx="+comment.getBoard_idx();
 	}
+	
 	@GetMapping(value = "/pages/{board_idx}/{page}", produces = { MediaType.APPLICATION_XML_VALUE,
 			MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<CommentPageDTO> getList(@PathVariable("page") int page, @PathVariable("board_idx") Integer board_idx,Model model) {
@@ -56,6 +57,7 @@ public class CommentController {
 		
 		return new ResponseEntity<>(service.getListPage(cri, board_idx), HttpStatus.OK);
 	}
+	
 	@PreAuthorize("principal.username == #comment.writer")
 	@RequestMapping(method = RequestMethod.DELETE ,value = "/delete/{idx}")
 	public ResponseEntity<String> deleteComment(@RequestBody CommentVO comment,@PathVariable("idx")int idx) {
@@ -73,6 +75,7 @@ public class CommentController {
 		log.info("get:"+idx);
 		return new ResponseEntity<>(service.get(idx),HttpStatus.OK);
 	}
+	
 	@PreAuthorize("principal.username == #comment.writer")
 	@RequestMapping(method= {RequestMethod.PUT,RequestMethod.PATCH},value="/modify/{idx}",consumes="application/json",produces= {MediaType.TEXT_PLAIN_VALUE})
 	public ResponseEntity<String> modify(@RequestBody CommentVO comment,@PathVariable("idx") int idx){

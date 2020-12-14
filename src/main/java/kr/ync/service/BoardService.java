@@ -10,9 +10,13 @@ public interface BoardService {
 	public void del(int idx);
 	
 	public String getImg(int idx);
+	
 	public void modify(BoardVO2 board);
+	
 	public BoardVO2 view(int idx);
+	
 	public void updateCount(int idx);
+	
 	public List<BoardVO2>ListWithPaging(Criteria cri);
 
 	//추가

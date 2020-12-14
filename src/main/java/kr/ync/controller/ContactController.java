@@ -34,18 +34,21 @@ public class ContactController {
 		//model.addAttribute("message",service.getList(principal.getName()));
 		return "front/contact";
 	}
+	
 	@PostMapping("create")
 	public String create(MessageVO message) {
 		System.out.println(message);
 		service.create(message);
 		return "redirect:/jcw/contact/index";
 	}
+	
 	@GetMapping("view")
 	public String view(Model model,int idx) {
 		model.addAttribute("message", service.get(idx));
 		model.addAttribute("answer", service.getanswer(idx));
 		return "front/contact_view";
 	}
+	
 	@GetMapping(value = "/listmessage/{page}", produces = { MediaType.APPLICATION_XML_VALUE,
 			MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<MessagePageDTO> getList(@PathVariable("page") int page,Model model,Principal principal) {

@@ -57,6 +57,7 @@ public class BoardController2 {
 		service.create(board);
 		return "redirect:/jcw/board/list";
 	}
+	
 	@GetMapping("/list")
 	public String list(BoardCriteria cri, Model model) {
 		log.info("list: " + cri);
@@ -72,16 +73,6 @@ public class BoardController2 {
 		return "/front/board";
 	}
 	
-//	@GetMapping("/list")
-//	public String list(Model model) {
-//
-//
-//		List<BoardVO2> list=service.List();
-//		list.forEach(board -> log.info(board));
-//		System.out.println(list);
-//		model.addAttribute("list", list);
-//		return "/front/board";
-//	}
 	@GetMapping("view")
 	public String view(@RequestParam("idx") int idx,Model model,Criteria cri) {
 		
@@ -91,6 +82,7 @@ public class BoardController2 {
 		model.addAttribute("cri", cri);
 		return"front/board_single";
 	}
+	
 	@PreAuthorize("principal.username == #writer")
 	@PostMapping("del")
 	public String del(@RequestParam("idx") int idx,Criteria cri,@RequestParam("writer")String writer) {
@@ -102,6 +94,7 @@ public class BoardController2 {
 		
 		return "redirect:/jcw/board/list"+cri.getListLink();
 	}
+	
 	@PreAuthorize("principal.username == #writer")
 	@PostMapping("modify_form")
 	public String modify_form(@RequestParam("idx")int idx,Model model,Criteria cri,@RequestParam("writer")String writer) {
@@ -112,6 +105,7 @@ public class BoardController2 {
 		System.out.println(cri);
 		return"front/board_modify";
 	}
+	
 	@PreAuthorize("principal.username == #board.writer")
 	@PostMapping("modify")
 	public String modify(MultipartFile[] uploadFile, BoardVO2 board,RedirectAttributes rttr,Criteria cri) {
